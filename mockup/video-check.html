@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>チャットボット動画チェック</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #111;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 14px;
+      font-weight: normal;
+      color: #888;
+      margin-bottom: 16px;
+    }
+    .video-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      width: 100%;
+      max-width: 960px;
+    }
+    video {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 8px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+    }
+    .video-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .video-list button {
+      background: #222;
+      color: #ccc;
+      border: 1px solid #333;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+    .video-list button:hover { background: #333; color: #fff; }
+    .video-list button.active {
+      background: #2563eb;
+      color: #fff;
+      border-color: #2563eb;
+    }
+    .filename {
+      font-size: 12px;
+      color: #666;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>動画チェック</h1>
+  <div class="video-container">
+    <video id="player" controls autoplay>
+      <source id="source" src="faq-chatbot-widget/faq-chatbot-widget/videos/greeting.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="filename" id="filename">greeting.mp4</div>
+  <div class="video-list" id="videoList"></div>
+
+  <script>
+    const videos = [
+      { name: 'greeting', src: 'faq-chatbot-widget/faq-chatbot-widget/videos/greeting.mp4' },
+      { name: 'faq-work-1', src: 'faq-chatbot-widget/faq-chatbot-widget/videos/faq-work-1.mp4' },
+      { name: 'faq-work-2', src: 'faq-chatbot-widget/faq-chatbot-widget/videos/faq-work-2.mp4' },
+      { name: 'faq-apply-1', src: 'faq-chatbot-widget/faq-chatbot-widget/videos/faq-apply-1.mp4' },
+      { name: 'faq-apply-2', src: 'faq-chatbot-widget/faq-chatbot-widget/videos/faq-apply-2.mp4' },
+      { name: 'houjin-eigyo', src: 'faq-chatbot-widget/faq-chatbot-widget/videos/houjin-eigyo.mp4' },
+      { name: 'AI動画 3.12試作', src: 'AI動画＿3.12試作.mp4' },
+      { name: 'テスト動画 0313', src: 'テスト動画＿0313.mp4' },
+    ];
+
+    const player = document.getElementById('player');
+    const source = document.getElementById('source');
+    const filenameEl = document.getElementById('filename');
+    const listEl = document.getElementById('videoList');
+
+    function play(index) {
+      source.src = videos[index].src;
+      filenameEl.textContent = videos[index].src.split('/').pop();
+      player.load();
+      player.play();
+      document.querySelectorAll('.video-list button').forEach((btn, i) => {
+        btn.classList.toggle('active', i === index);
+      });
+    }
+
+    videos.forEach((v, i) => {
+      const btn = document.createElement('button');
+      btn.textContent = v.name;
+      btn.onclick = () => play(i);
+      if (i === 0) btn.classList.add('active');
+      listEl.appendChild(btn);
+    });
+  </script>
+</body>
+</html>

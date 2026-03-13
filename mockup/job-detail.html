@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【エグゼキューション経験者｜M&Aアドバイザー】※ソーシングなし - 株式会社ウィルゲート - worktalk</title>
+  <link rel="stylesheet" href="job-detail.css">
+</head>
+<body>
+
+  <!-- Password Gate -->
+  <div id="password-gate" style="position:fixed;inset:0;z-index:9999;background:#f5f5f5;display:flex;align-items:center;justify-content:center;">
+    <div style="background:#fff;padding:40px;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.15);text-align:center;min-width:280px;">
+      <p style="margin:0 0 16px;font-size:15px;color:#333;">パスワードを入力してください</p>
+      <input type="password" id="pw-input" style="width:100%;padding:8px 12px;border:1px solid #ccc;border-radius:4px;font-size:15px;box-sizing:border-box;" autofocus>
+      <button onclick="checkPassword()" style="margin-top:12px;width:100%;padding:10px;background:#1a237e;color:#fff;border:none;border-radius:4px;font-size:15px;cursor:pointer;">入力</button>
+      <p id="pw-error" style="color:red;font-size:13px;margin:8px 0 0;display:none;">パスワードが違います</p>
+    </div>
+  </div>
+  <script>
+    (function() { if (sessionStorage.getItem('auth') === '1') document.getElementById('password-gate').style.display = 'none'; })();
+    function checkPassword() {
+      if (document.getElementById('pw-input').value === 'ai') {
+        sessionStorage.setItem('auth', '1');
+        document.getElementById('password-gate').style.display = 'none';
+      } else {
+        document.getElementById('pw-error').style.display = 'block';
+      }
+    }
+    document.getElementById('pw-input').addEventListener('keydown', function(e) { if (e.key === 'Enter') checkPassword(); });
+  </script>
+
+  <!-- ========================================
+       Header
+       ======================================== -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-left">
+        <div class="company-logo" style="display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#1a237e;">WILLGATE</div>
+        <h1 class="company-name">株式会社ウィルゲート</h1>
+      </div>
+      <a href="#apply" class="header-apply-btn">応募する</a>
+    </div>
+  </header>
+
+  <!-- ========================================
+       Page Content
+       ======================================== -->
+  <div class="page-wrapper">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+      <a href="index.html">求人一覧</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">【エグゼキューション経験者｜M&Aアドバイザー】※ソーシングなし</span>
+    </nav>
+
+    <!-- Job Title Block -->
+    <div class="job-title-block">
+      <h2 class="job-title">【エグゼキューション経験者｜M&Aアドバイザー】※ソーシングなし</h2>
+      <div class="job-meta-tags">
+        <span class="meta-badge">正社員</span>
+        <span class="meta-tag">東京</span>
+        <span class="meta-tag">M&A</span>
+      </div>
+    </div>
+
+    <!-- ポジション概要 -->
+    <div class="section-card">
+      <h3 class="section-title">ポジション概要</h3>
+      <div class="section-body">
+        <p>
+          ウィルゲートのM&A事業部では、中小企業の経営者様のM&Aを成功に導くため、エグゼキューション業務を専任で担当いただけるアドバイザーを募集しています。
+        </p>
+        <p>
+          本ポジションはソーシング（新規開拓）を担当せず、すでに成約意欲の高いアドバイザーが持ち込んだ案件のエグゼキューション（デューデリジェンスから最終契約までの実務）に特化することができます。
+        </p>
+        <p>
+          年間200件以上の案件に携わりながら、M&Aの実務スキルを磨ける環境です。経験者はもちろん、金融・コンサルティング出身でM&Aの実務経験をさらに積みたい方に最適なポジションです。
+        </p>
+      </div>
+    </div>
+
+    <!-- 業務内容 -->
+    <div class="section-card">
+      <h3 class="section-title">業務内容</h3>
+      <div class="section-body">
+        <ul>
+          <li>M&Aエグゼキューション業務全般（基本合意以降）</li>
+          <li>デューデリジェンス（DD）の計画立案・進捗管理</li>
+          <li>財務・法務・ビジネスDDにおける各専門家との連携・調整</li>
+          <li>最終契約書（SPA等）の交渉・レビュー支援</li>
+          <li>買手・売手双方へのクロージング準備サポート</li>
+          <li>PMI（統合後プロセス）の初期計画サポート</li>
+          <li>案件管理システムへの情報入力・進捗報告</li>
+          <li>社内外の弁護士・公認会計士・税理士との折衝</li>
+          <li>クロージング書類の作成・確認・保管管理</li>
+          <li>若手メンバーへのOJT・ナレッジ共有</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 求人背景 -->
+    <div class="section-card">
+      <h3 class="section-title">求人背景</h3>
+      <div class="section-body">
+        <p>
+          ウィルゲートのM&A事業は2022年のサービス開始以来、急成長を続けています。現在は月間40〜50件のM&A相談を受け付けており、成約件数も前年比150%で推移しています。
+        </p>
+        <p>
+          これに伴い、高まるエグゼキューション需要に対応するため、即戦力のアドバイザーを増員します。ソーシング担当とエグゼキューション担当を分業することで、それぞれの専門性を最大限に発揮できる体制を整えています。
+        </p>
+      </div>
+    </div>
+
+    <!-- このポジションの魅力 -->
+    <div class="section-card">
+      <h3 class="section-title">このポジションの魅力</h3>
+      <div class="section-body">
+        <ul>
+          <li><strong>ソーシングなし・エグゼキューションに集中：</strong>営業活動なしに、M&Aの実務に専念できます。</li>
+          <li><strong>豊富な案件数：</strong>年間200件超の案件に携わることで、急速にスキルアップが可能です。</li>
+          <li><strong>インセンティブ制度：</strong>成約貢献度に応じた業績連動型インセンティブがあり、高年収も狙えます。</li>
+          <li><strong>裁量の大きさ：</strong>案件担当として交渉・意思決定に直接携わることができます。</li>
+          <li><strong>フレックスタイム制：</strong>コアタイムなしのフレックスで、柔軟な働き方が実現できます。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 応募要件 -->
+    <div class="section-card">
+      <h3 class="section-title">応募要件</h3>
+      <div class="section-body">
+
+        <div class="req-group">
+          <span class="req-label required">必須</span>
+          <ul>
+            <li>M&Aエグゼキューション経験（FA・投資銀行・PEファンド・M&A仲介など）2年以上</li>
+            <li>基本合意後のDD進行〜クロージングまでの一連の実務経験</li>
+            <li>外部専門家（弁護士・会計士）との折衝経験</li>
+          </ul>
+        </div>
+
+        <div class="req-group">
+          <span class="req-label preferred">歓迎</span>
+          <ul>
+            <li>中小企業M&Aの実務経験</li>
+            <li>SPA（株式譲渡契約）のドラフト・レビュー経験</li>
+            <li>PMI経験・知識</li>
+            <li>公認会計士・税理士・中小企業診断士などの資格保有者</li>
+            <li>スタートアップ・成長企業での就業経験</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 給与 -->
+    <div class="section-card">
+      <h3 class="section-title">給与</h3>
+      <div class="section-body">
+        <p class="salary-highlight">年収 600万円 〜 3,000万円</p>
+        <p class="salary-note">
+          ※上記は、固定給（ベース給与）と業績連動型インセンティブ（変動給）を合算した年収例です。<br>
+          ※固定給：月給35万円〜70万円（経験・能力により決定）<br>
+          ※インセンティブ：成約案件の貢献度に応じて支給（上限なし）
+        </p>
+      </div>
+    </div>
+
+    <!-- 雇用形態・勤務時間・勤務地・待遇 -->
+    <div class="section-card">
+      <h3 class="section-title">勤務条件・待遇</h3>
+      <div class="section-body">
+        <table class="info-table">
+          <tr>
+            <th>雇用形態</th>
+            <td>正社員</td>
+          </tr>
+          <tr>
+            <th>勤務時間</th>
+            <td>
+              フレックスタイム制（コアタイムなし）<br>
+              標準労働時間：1日8時間
+            </td>
+          </tr>
+          <tr>
+            <th>勤務地</th>
+            <td>
+              東京都渋谷区渋谷2-21-1（渋谷ヒカリエ）<br>
+              ※リモートワーク週2〜3日可
+            </td>
+          </tr>
+          <tr>
+            <th>休日・休暇</th>
+            <td>
+              完全週休2日制（土・日）、祝日<br>
+              年次有給休暇（入社初日から10日付与）<br>
+              慶弔休暇、産前産後・育児休暇
+            </td>
+          </tr>
+          <tr>
+            <th>各種保険</th>
+            <td>健康保険・厚生年金・雇用保険・労災保険（社会保険完備）</td>
+          </tr>
+          <tr>
+            <th>福利厚生</th>
+            <td>
+              交通費全額支給<br>
+              書籍・セミナー費用補助<br>
+              健康診断（年1回）<br>
+              退職金制度
+            </td>
+          </tr>
+          <tr>
+            <th>試用期間</th>
+            <td>3ヶ月（同条件）</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- 応募CTA -->
+    <div class="footer-cta" id="apply">
+      <p class="footer-cta-title">このポジションに興味を持っていただけましたか？</p>
+      <a href="#" class="btn-apply-large">応募する</a>
+    </div>
+
+    <!-- Back Link -->
+    <div class="back-link-wrap">
+      <a href="index.html" class="back-link">← 求人一覧に戻る</a>
+    </div>
+
+  </div><!-- /.page-wrapper -->
+
+</body>
+</html>
