@@ -1,0 +1,403 @@
+/* ========================================
+   Job Detail Page - CSS
+   ======================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F5F5F5;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ========================================
+   Header
+   ======================================== */
+.header {
+  background: #fff;
+  border-bottom: 2px solid #1a237e;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.company-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  border: 1px solid #E0E0E0;
+  background: #F8F8F8;
+  object-fit: contain;
+}
+
+.company-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+}
+
+.header-apply-btn {
+  background: #1A73E8;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+
+.header-apply-btn:hover {
+  background: #1565C0;
+}
+
+/* ========================================
+   Page Wrapper
+   ======================================== */
+.page-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 20px 60px;
+}
+
+/* ========================================
+   Breadcrumb
+   ======================================== */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  color: #1A73E8;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-sep {
+  color: #ccc;
+}
+
+.breadcrumb-current {
+  color: #555;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 400px;
+}
+
+/* ========================================
+   Job Title Block
+   ======================================== */
+.job-title-block {
+  background: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.job-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
+}
+
+.job-meta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.meta-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #1A73E8;
+  color: #1A73E8;
+  background: #f0f6ff;
+}
+
+.meta-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  background: #F0F0F0;
+  color: #555;
+  border: 1px solid #D0D0D0;
+}
+
+/* ========================================
+   Section Card
+   ======================================== */
+.section-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a237e;
+  margin: 0 0 16px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #E8EDF7;
+}
+
+.section-body {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.8;
+}
+
+.section-body p {
+  margin: 0 0 12px 0;
+}
+
+.section-body p:last-child {
+  margin-bottom: 0;
+}
+
+.section-body ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.section-body li {
+  margin-bottom: 8px;
+}
+
+/* ========================================
+   Requirements (必須 / 歓迎)
+   ======================================== */
+.req-group {
+  margin-bottom: 20px;
+}
+
+.req-group:last-child {
+  margin-bottom: 0;
+}
+
+.req-label {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.req-label.required {
+  background: #ecf9ff;
+  border: 1px solid #004e98;
+  color: #004e98;
+}
+
+.req-label.preferred {
+  background: #f5f5f5;
+  border: 1px solid #999;
+  color: #666;
+}
+
+.req-group ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.req-group li {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.7;
+}
+
+/* ========================================
+   Info Table (給与・勤務地など)
+   ======================================== */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.info-table tr {
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.info-table tr:last-child {
+  border-bottom: none;
+}
+
+.info-table th {
+  padding: 12px 8px 12px 0;
+  font-weight: 600;
+  color: #555;
+  white-space: nowrap;
+  width: 110px;
+  vertical-align: top;
+}
+
+.info-table td {
+  padding: 12px 0;
+  color: #333;
+  line-height: 1.7;
+  vertical-align: top;
+}
+
+.salary-highlight {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a237e;
+}
+
+.salary-note {
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* ========================================
+   Footer CTA
+   ======================================== */
+.footer-cta {
+  background: #fff;
+  border-radius: 8px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+}
+
+.footer-cta-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 20px 0;
+}
+
+.btn-apply-large {
+  display: inline-block;
+  background: #1A73E8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 60px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+  margin-bottom: 20px;
+}
+
+.btn-apply-large:hover {
+  background: #1565C0;
+}
+
+
+/* ========================================
+   Back Link
+   ======================================== */
+.back-link-wrap {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.back-link {
+  color: #1A73E8;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 10px 16px;
+  }
+
+  .company-name {
+    font-size: 15px;
+  }
+
+  .header-apply-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .page-wrapper {
+    padding: 16px 12px 48px;
+  }
+
+  .job-title {
+    font-size: 18px;
+  }
+
+  .section-card,
+  .job-title-block,
+  .footer-cta {
+    padding: 18px 16px;
+  }
+
+  .info-table th {
+    width: 90px;
+    font-size: 13px;
+  }
+
+  .btn-apply-large {
+    padding: 12px 40px;
+    font-size: 15px;
+  }
+
+  .breadcrumb-current {
+    max-width: 200px;
+  }
+}

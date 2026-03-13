@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社ウィルゲート 求人一覧 - worktalk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Password Gate -->
+  <div id="password-gate" style="position:fixed;inset:0;z-index:9999;background:#f5f5f5;display:flex;align-items:center;justify-content:center;">
+    <div style="background:#fff;padding:40px;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.15);text-align:center;min-width:280px;">
+      <p style="margin:0 0 16px;font-size:15px;color:#333;">パスワードを入力してください</p>
+      <input type="password" id="pw-input" style="width:100%;padding:8px 12px;border:1px solid #ccc;border-radius:4px;font-size:15px;box-sizing:border-box;" autofocus>
+      <button onclick="checkPassword()" style="margin-top:12px;width:100%;padding:10px;background:#1a237e;color:#fff;border:none;border-radius:4px;font-size:15px;cursor:pointer;">入力</button>
+      <p id="pw-error" style="color:red;font-size:13px;margin:8px 0 0;display:none;">パスワードが違います</p>
+    </div>
+  </div>
+  <script>
+    (function() { if (sessionStorage.getItem('auth') === '1') document.getElementById('password-gate').style.display = 'none'; })();
+    function checkPassword() {
+      if (document.getElementById('pw-input').value === 'ai') {
+        sessionStorage.setItem('auth', '1');
+        document.getElementById('password-gate').style.display = 'none';
+      } else {
+        document.getElementById('pw-error').style.display = 'block';
+      }
+    }
+    document.getElementById('pw-input').addEventListener('keydown', function(e) { if (e.key === 'Enter') checkPassword(); });
+  </script>
+
+  <!-- ========================================
+       Header
+       ======================================== -->
+  <header class="header">
+    <div class="header-inner">
+      <img src="https://work-talk.jp/hp_top/willgate" alt="WILLGATE" class="company-logo"
+           onerror="this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.style.fontSize='10px'; this.style.color='#333'; this.alt='WILLGATE'; this.outerHTML='<div class=\'company-logo\' style=\'display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#1a237e;\'>WILLGATE</div>';">
+      <h1 class="company-name">株式会社ウィルゲート</h1>
+    </div>
+  </header>
+
+  <!-- ========================================
+       Announcement Banner
+       ======================================== -->
+  <div class="announcement-banner">
+    弊社は、マイキャリア株式会社が運営する「worktalk」にて、中途採用の応募受付をしています。
+  </div>
+
+  <!-- ========================================
+       Toggle Navigation
+       ======================================== -->
+  <div class="toggle-wrapper">
+    <div class="toggle-group">
+      <div class="toggle-item active">求人一覧</div>
+      <div class="toggle-item">カジュアル面談</div>
+    </div>
+  </div>
+
+  <!-- ========================================
+       Hero Image Section
+       ======================================== -->
+  <section class="hero-section">
+    <div class="hero-image">
+      <div class="hero-overlay">
+        <h2>MAKE YOUR WILL COME TRUE</h2>
+        <p>一人ひとりの「will」を実現する</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       求人一覧 ページコンテンツ
+       ======================================== -->
+  <div id="page-jobs" class="page-section">
+
+    <!-- Search Bar & Result Count -->
+    <section class="search-section">
+      <div class="search-box">
+        <span class="search-icon">&#128269;</span>
+        <input type="text" placeholder="この会社の求人を探す">
+      </div>
+      <div class="result-count">全 <strong>4</strong> 件中 <strong>4</strong> 件を表示しています</div>
+    </section>
+
+    <!-- SP Filter List (SP only / accordion) -->
+    <div class="sp-filter-list">
+      <div class="sp-filter-entry">
+        <div class="sp-filter-item" data-filter="エリア">
+          <div class="sp-filter-item-content">
+            <div class="sp-filter-label">エリア</div>
+            <div class="sp-filter-value">すべて</div>
+          </div>
+          <span class="sp-filter-arrow">&#x203A;</span>
+        </div>
+        <div class="sp-filter-panel">
+          <label class="sp-filter-option"><input type="checkbox" value="東京"> 東京</label>
+          <label class="sp-filter-option"><input type="checkbox" value="大阪"> 大阪</label>
+        </div>
+      </div>
+      <div class="sp-filter-entry">
+        <div class="sp-filter-item" data-filter="職種">
+          <div class="sp-filter-item-content">
+            <div class="sp-filter-label">職種</div>
+            <div class="sp-filter-value">すべて</div>
+          </div>
+          <span class="sp-filter-arrow">&#x203A;</span>
+        </div>
+        <div class="sp-filter-panel">
+          <label class="sp-filter-option"><input type="checkbox" value="営業"> 営業</label>
+          <label class="sp-filter-option"><input type="checkbox" value="M&amp;A"> M&amp;A</label>
+          <label class="sp-filter-option"><input type="checkbox" value="エンジニア"> エンジニア</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content: Sidebar + Job List -->
+    <main class="main-content">
+
+      <!-- Sidebar Filters -->
+      <aside class="sidebar">
+        <!-- 雇用形態 -->
+        <div class="filter-group">
+          <div class="filter-title">雇用形態</div>
+          <label class="filter-option">
+            <input type="checkbox"> 正社員
+            <span class="count">(3)</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox"> 契約社員
+            <span class="count">(1)</span>
+          </label>
+        </div>
+
+        <!-- エリア -->
+        <div class="filter-group">
+          <div class="filter-title">エリア</div>
+          <label class="filter-option">
+            <input type="checkbox"> 東京
+            <span class="count">(4)</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox"> 大阪
+            <span class="count">(0)</span>
+          </label>
+        </div>
+
+        <!-- 職種 -->
+        <div class="filter-group">
+          <div class="filter-title">職種</div>
+          <label class="filter-option">
+            <input type="checkbox"> 営業
+            <span class="count">(1)</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox"> M&A
+            <span class="count">(2)</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox"> エンジニア
+            <span class="count">(1)</span>
+          </label>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="filter-buttons">
+          <button class="btn-filter-apply">検索結果を表示する</button>
+          <button class="btn-filter-reset">すべての条件をリセット</button>
+        </div>
+      </aside>
+
+      <!-- Job List -->
+      <div class="job-list">
+
+        <!-- Job Card 1 -->
+        <div class="job-card">
+          <div class="job-card-info">
+            <a href="job-detail.html?id=1" class="job-card-title">
+              【エグゼキューション経験者｜M&Aアドバイザー】※ソーシングなし
+            </a>
+            <div class="job-card-description">
+              【給与】 想定年収： 600万円 ～ 3,000万円
+              ※上記は、固定給（ベース給与）と業績連動型インセンティブ（変動給）を合算した年収例です。
+            </div>
+            <div class="job-card-tags">
+              <span class="tag">東京</span>
+              <span class="tag">M&A</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job Card 2 -->
+        <div class="job-card">
+          <div class="job-card-info">
+            <a href="job-detail.html?id=2" class="job-card-title">
+              【未経験歓迎｜M&Aアドバイザー】
+            </a>
+            <div class="job-card-description">
+              【給与】 想定年収： 420万円 ～ 3,000万円
+              ※上記は、固定給（ベース給与）と業績連動型インセンティブ（変動給）を合算した年収例です。
+            </div>
+            <div class="job-card-tags">
+              <span class="tag">東京</span>
+              <span class="tag">M&A</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job Card 3 -->
+        <div class="job-card">
+          <div class="job-card-info">
+            <a href="job-detail.html?id=3" class="job-card-title">
+              Webエンジニア（バックエンド）
+            </a>
+            <div class="job-card-description">
+              【給与】 想定年収： 500万円 ～ 800万円
+              自社プロダクトの開発を担当していただきます。PHP/Laravelを使用した開発経験がある方を歓迎します。
+            </div>
+            <div class="job-card-tags">
+              <span class="tag">東京</span>
+              <span class="tag">エンジニア</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job Card 4 -->
+        <div class="job-card">
+          <div class="job-card-info">
+            <a href="job-detail.html?id=4" class="job-card-title">
+              法人営業（SEOコンサルティング）
+            </a>
+            <div class="job-card-description">
+              【給与】 想定年収： 400万円 ～ 600万円
+              SEOコンサルティングサービスの法人営業をお任せします。マーケティングの知識を活かした提案営業が可能です。
+            </div>
+            <div class="job-card-tags">
+              <span class="tag">東京</span>
+              <span class="tag">営業</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div><!-- /#page-jobs -->
+
+  <!-- ========================================
+       カジュアル面談 ページコンテンツ
+       ======================================== -->
+  <div id="page-casual" class="page-section" style="display:none">
+
+    <!-- イントロセクション -->
+    <section class="casual-intro">
+      <div class="casual-intro-inner">
+        <p class="casual-intro-label">CASUAL INTERVIEW</p>
+        <h2 class="casual-intro-title">まずは気軽に話しましょう</h2>
+        <p class="casual-intro-text">
+          選考とは関係なく、会社や仕事についてざっくばらんにお話しできます。<br>
+          転職を考えているかどうかにかかわらず、お気軽にご参加ください。
+        </p>
+      </div>
+    </section>
+
+    <!-- メリットセクション -->
+    <section class="casual-merits">
+      <div class="casual-section-inner">
+        <h3 class="casual-section-title">カジュアル面談のメリット</h3>
+        <div class="merit-grid">
+          <div class="merit-card">
+            <div class="merit-icon">&#128221;</div>
+            <h4 class="merit-card-title">選考・評価なし</h4>
+            <p class="merit-card-text">
+              カジュアル面談は採用選考ではありません。合否の判定は一切行わないので、プレッシャーなくお話しいただけます。
+            </p>
+          </div>
+          <div class="merit-card">
+            <div class="merit-icon">&#127968;</div>
+            <h4 class="merit-card-title">社風・職場環境を直接確認</h4>
+            <p class="merit-card-text">
+              実際に働く社員から、職場の雰囲気やチームの文化について本音でお伝えします。求人票だけではわからないリアルな情報を得られます。
+            </p>
+          </div>
+          <div class="merit-card">
+            <div class="merit-icon">&#128172;</div>
+            <h4 class="merit-card-title">キャリアの相談ができる</h4>
+            <p class="merit-card-text">
+              「自分のスキルが活かせるか」「将来的なキャリアパスは？」など、漠然とした悩みでも一緒に考えます。
+            </p>
+          </div>
+          <div class="merit-card">
+            <div class="merit-icon">&#128640;</div>
+            <h4 class="merit-card-title">転職活動の第一歩として最適</h4>
+            <p class="merit-card-text">
+              「まだ転職するか決めていない」という方にもおすすめ。情報収集の場として、まずは話を聞くだけでも大歓迎です。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 面談フロー -->
+    <section class="casual-flow">
+      <div class="casual-section-inner">
+        <h3 class="casual-section-title">面談の流れ</h3>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="flow-step-num">01</div>
+            <div class="flow-step-body">
+              <h4 class="flow-step-title">申し込み</h4>
+              <p class="flow-step-text">下のボタンから希望の担当者・日時を選んで申し込みます。所要時間は約30〜60分です。</p>
+            </div>
+          </div>
+          <div class="flow-arrow">&#8250;</div>
+          <div class="flow-step">
+            <div class="flow-step-num">02</div>
+            <div class="flow-step-body">
+              <h4 class="flow-step-title">オンライン面談</h4>
+              <p class="flow-step-text">ZoomまたはGoogle Meetにて実施。自宅から気軽にご参加いただけます。</p>
+            </div>
+          </div>
+          <div class="flow-arrow">&#8250;</div>
+          <div class="flow-step">
+            <div class="flow-step-num">03</div>
+            <div class="flow-step-body">
+              <h4 class="flow-step-title">その後の選択</h4>
+              <p class="flow-step-text">面談後、選考へ進むかどうかはご自身のペースで決めていただけます。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 担当者カード -->
+    <section class="casual-slots">
+      <div class="casual-section-inner">
+        <h3 class="casual-section-title">面談可能な担当者</h3>
+        <div class="slot-grid">
+
+          <div class="slot-card">
+            <div class="slot-avatar">山</div>
+            <div class="slot-name">山田 太郎</div>
+            <div class="slot-role">M&Aアドバイザー部門 マネージャー</div>
+            <p class="slot-comment">
+              「M&Aのやりがいや、入社後のキャリアについて何でも話せます。業界未経験の方も歓迎です！」
+            </p>
+            <div class="slot-tags">
+              <span class="slot-tag">M&A</span>
+              <span class="slot-tag">マネジメント</span>
+            </div>
+            <button class="btn-slot-apply">面談を申し込む</button>
+          </div>
+
+          <div class="slot-card">
+            <div class="slot-avatar">鈴</div>
+            <div class="slot-name">鈴木 花子</div>
+            <div class="slot-role">エンジニアリング部門 テックリード</div>
+            <p class="slot-comment">
+              「技術スタックや開発環境、エンジニアの働き方について詳しくお伝えします。コードレビュー文化など現場の話もします！」
+            </p>
+            <div class="slot-tags">
+              <span class="slot-tag">エンジニア</span>
+              <span class="slot-tag">PHP/Laravel</span>
+            </div>
+            <button class="btn-slot-apply">面談を申し込む</button>
+          </div>
+
+          <div class="slot-card">
+            <div class="slot-avatar">佐</div>
+            <div class="slot-name">佐藤 健一</div>
+            <div class="slot-role">人事部 採用担当</div>
+            <p class="slot-comment">
+              「会社の文化や福利厚生、選考フローなど、気になることは何でもお答えします。転職の悩み相談もOKです！」
+            </p>
+            <div class="slot-tags">
+              <span class="slot-tag">人事</span>
+              <span class="slot-tag">キャリア相談</span>
+            </div>
+            <button class="btn-slot-apply">面談を申し込む</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTAバナー -->
+    <section class="casual-cta">
+      <div class="casual-cta-inner">
+        <h3 class="casual-cta-title">まずは話を聞いてみませんか？</h3>
+        <p class="casual-cta-text">選考なし・プレッシャーなし。気軽に参加できるカジュアル面談です。</p>
+        <button class="btn-cta-primary">カジュアル面談を申し込む</button>
+      </div>
+    </section>
+
+  </div><!-- /#page-casual -->
+
+  <!-- ========================================
+       Video Widget
+       ======================================== -->
+
+  <!-- 動画パネル -->
+  <div class="video-widget-panel" id="videoPanel">
+    <video class="video-widget-video" id="widgetVideo" playsinline>
+      <source src="AI動画＿3.12試作.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay">
+      <!-- Progress bar -->
+      <div class="video-progress-wrap" id="videoProgressWrap">
+        <div class="video-progress-fill" id="videoProgressFill"></div>
+      </div>
+      <!-- Time display -->
+      <div class="video-top-row">
+        <span class="video-time" id="videoTime">00:00 / 00:00</span>
+      </div>
+      <!-- Side controls -->
+      <div class="video-side-controls">
+        <button class="video-side-btn" id="videoClose" aria-label="閉じる">
+          <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+        <button class="video-side-btn" id="videoRewind" aria-label="10秒戻す">
+          <svg viewBox="0 0 24 24"><path d="M11.99 5V1l-5 5 5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6h-2c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+        </button>
+        <button class="video-side-btn" id="videoMute" aria-label="ミュート">
+          <svg class="icon-vol-on" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          <svg class="icon-vol-off" viewBox="0 0 24 24" style="display:none"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+        </button>
+        <button class="video-side-btn video-side-btn--text" id="videoSpeed">1.0x</button>
+      </div>
+      <!-- Subtitle (greeting) -->
+      <div class="video-subtitle" id="videoSubtitle"></div>
+      <!-- Subtitle (houjin) -->
+      <div class="video-subtitle-houjin" id="videoSubtitleHoujin"></div>
+
+      <!-- Bot choices (dynamically populated) -->
+      <div class="video-bot-choices" id="videoBotChoices"></div>
+    </div>
+  </div>
+
+  <!-- 起動ボタン（アバター＋バッジ） -->
+  <button class="video-widget-launcher" id="videoLauncher" aria-label="動画を開く">
+    <span class="video-launcher-badge">動画でご説明</span>
+    <div class="video-launcher-ring">
+      <video class="video-launcher-thumb" id="launcherThumb" muted playsinline autoplay loop>
+        <source src="AI動画＿3.12試作.mp4" type="video/mp4">
+      </video>
+    </div>
+  </button>
+
+  <script>
+    // SP accordion filter
+    document.querySelectorAll('.sp-filter-item').forEach(function(item) {
+      item.addEventListener('click', function() {
+        var entry = item.closest('.sp-filter-entry');
+        var isOpen = entry.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.sp-filter-entry.open').forEach(function(e) { e.classList.remove('open'); });
+        // Toggle current
+        if (!isOpen) entry.classList.add('open');
+      });
+    });
+
+    // Update label when checkbox changes
+    document.querySelectorAll('.sp-filter-panel input[type="checkbox"]').forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        var entry = cb.closest('.sp-filter-entry');
+        var valueEl = entry.querySelector('.sp-filter-value');
+        var checked = Array.from(entry.querySelectorAll('input[type="checkbox"]:checked')).map(function(el) { return el.value; });
+        valueEl.textContent = checked.length > 0 ? checked.join('、') : 'すべて';
+      });
+    });
+
+    // ========================================
+    // Video Widget — Conversational Bot
+    // ========================================
+    (function() {
+      var launcher      = document.getElementById('videoLauncher');
+      var panel         = document.getElementById('videoPanel');
+      var video         = document.getElementById('widgetVideo');
+      var launcherThumb = document.getElementById('launcherThumb');
+      var closeBtn      = document.getElementById('videoClose');
+      var rewindBtn     = document.getElementById('videoRewind');
+      var muteBtn       = document.getElementById('videoMute');
+      var speedBtn      = document.getElementById('videoSpeed');
+      var progressFill  = document.getElementById('videoProgressFill');
+      var progressWrap  = document.getElementById('videoProgressWrap');
+      var timeEl        = document.getElementById('videoTime');
+      var subtitleEl    = document.getElementById('videoSubtitle');
+      var subtitleHoujinEl = document.getElementById('videoSubtitleHoujin');
+      var choicesEl     = document.getElementById('videoBotChoices');
+
+      // ---- Conversation Tree ----
+      var tree = {
+        greeting: {
+          src: 'AI動画＿3.12試作.mp4',
+          subtitleStyle: 'greeting',
+          cues: [
+            { start: 0,   end: 4,   text: 'こんにちは！マイキャリア株式会社の広報担当です！' },
+            { start: 4,   end: 8.5, text: 'このページでは弊社の求人をご紹介します！' }
+          ],
+          choices: [
+            { label: '法人営業について聞く',   icon: '💼', next: 'houjin' },
+            { label: '応募について聞く',       icon: '📝', next: 'apply-intro' },
+            { label: '勤務について聞く',       icon: '🏢', next: 'work-intro' },
+            { label: 'カジュアル面談を希望',   icon: '☕', action: 'casual' }
+          ]
+        },
+        houjin: {
+          src: 'faq-chatbot-widget/faq-chatbot-widget/videos/houjin-eigyo.mp4',
+          subtitleStyle: 'houjin',
+          cues: [
+            { start: 0,  end: 3,  text: '法人営業について\nご紹介します。' },
+            { start: 3,  end: 7,  text: 'このポジションでは、\n企業のWebマーケティングの\n課題をヒアリングして、' },
+            { start: 7,  end: 11, text: 'SEOを中心とした\nコンサルティングの\nご提案をしていただきます。' },
+            { start: 11, end: 15, text: '単なるサービスの\n売り込みではなく、\nお客様の売上を\n一緒に伸ばしていく' },
+            { start: 15, end: 18, text: 'パートナーのような\n営業スタイルが特徴です。' },
+            { start: 18, end: 22, text: 'マーケティングの知識は、\n入社後にしっかり\n学べる環境がありますので、' },
+            { start: 22, end: 27, text: '「提案型の営業に\nチャレンジしたい」という方なら\n業界未経験でも大歓迎です。' },
+            { start: 27, end: 32, text: '少しでも気になった方は、\nぜひ求人の詳細も\nチェックしてみてくださいね。' }
+          ],
+          choices: [
+            { label: '他の職種も見る',         icon: '🔄', next: 'greeting' },
+            { label: '応募について聞く',       icon: '📝', next: 'apply-intro' },
+            { label: 'カジュアル面談を希望',   icon: '☕', action: 'casual' }
+          ]
+        },
+        'apply-intro': {
+          src: 'faq-chatbot-widget/faq-chatbot-widget/videos/faq-apply-1.mp4',
+          subtitleStyle: 'houjin',
+          cues: [],
+          choices: [
+            { label: '年齢制限はありますか？', icon: '❓', next: 'apply-age' },
+            { label: '他の質問を見る',         icon: '🔄', next: 'greeting' },
+            { label: 'カジュアル面談を希望',   icon: '☕', action: 'casual' }
+          ]
+        },
+        'apply-age': {
+          src: 'faq-chatbot-widget/faq-chatbot-widget/videos/faq-apply-2.mp4',
+          subtitleStyle: 'houjin',
+          cues: [],
+          choices: [
+            { label: '勤務について聞く',       icon: '🏢', next: 'work-intro' },
+            { label: '最初に戻る',             icon: '🔄', next: 'greeting' },
+            { label: 'カジュアル面談を希望',   icon: '☕', action: 'casual' }
+          ]
+        },
+        'work-intro': {
+          src: 'faq-chatbot-widget/faq-chatbot-widget/videos/faq-work-1.mp4',
+          subtitleStyle: 'houjin',
+          cues: [],
+          choices: [
+            { label: '住む場所はありますか？', icon: '❓', next: 'work-housing' },
+            { label: '他の質問を見る',         icon: '🔄', next: 'greeting' },
+            { label: 'カジュアル面談を希望',   icon: '☕', action: 'casual' }
+          ]
+        },
+        'work-housing': {
+          src: 'faq-chatbot-widget/faq-chatbot-widget/videos/faq-work-2.mp4',
+          subtitleStyle: 'houjin',
+          cues: [],
+          choices: [
+            { label: '応募について聞く',       icon: '📝', next: 'apply-intro' },
+            { label: '最初に戻る',             icon: '🔄', next: 'greeting' },
+            { label: 'カジュアル面談を希望',   icon: '☕', action: 'casual' }
+          ]
+        }
+      };
+
+      var currentNode = 'greeting';
+      var speeds = [1, 1.5, 2];
+      var speedIdx = 0;
+
+      function pad(n) { return String(Math.floor(n)).padStart(2, '0'); }
+      function fmt(s)  { return pad(s / 60) + ':' + pad(s % 60); }
+
+      // ---- Choice UI ----
+      function showChoices() {
+        var node = tree[currentNode];
+        if (!node || !node.choices.length) return;
+        choicesEl.innerHTML = '';
+
+        node.choices.forEach(function(ch, i) {
+          var btn = document.createElement('button');
+          var isCta = ch.action === 'casual';
+          btn.className = 'video-bot-choice-btn' + (isCta ? ' video-bot-choice-btn--cta' : '');
+          btn.style.animationDelay = (i * 0.08) + 's';
+          btn.innerHTML = '<span class="choice-icon">' + ch.icon + '</span> ' + ch.label;
+          btn.addEventListener('click', function() {
+            if (ch.action === 'casual') {
+              closePanel();
+              var casualTab = document.querySelector('.toggle-item:nth-child(2)');
+              if (casualTab) { casualTab.click(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+            } else if (ch.next) {
+              playNode(ch.next);
+            }
+          });
+          choicesEl.appendChild(btn);
+        });
+
+        choicesEl.classList.add('visible');
+      }
+
+      function hideChoices() {
+        choicesEl.classList.remove('visible');
+        setTimeout(function() { choicesEl.innerHTML = ''; }, 300);
+      }
+
+      // ---- Node playback ----
+      function playNode(nodeId) {
+        var node = tree[nodeId];
+        if (!node) return;
+        currentNode = nodeId;
+        subtitleEl.style.display = 'none';
+        subtitleHoujinEl.style.display = 'none';
+
+        video.src = node.src;
+        video.currentTime = 0;
+        video.play().catch(function() {});
+
+        // Show choices immediately during playback
+        showChoices();
+      }
+
+      // ---- Panel open/close ----
+      function openPanel() {
+        panel.classList.add('open');
+        launcher.classList.add('panel-open');
+        launcher.setAttribute('aria-label', '動画を閉じる');
+        playNode('greeting');
+      }
+
+      function closePanel() {
+        panel.classList.remove('open');
+        launcher.classList.remove('panel-open');
+        launcher.setAttribute('aria-label', '動画を開く');
+        video.pause();
+        hideChoices();
+        subtitleEl.style.display = 'none';
+        subtitleHoujinEl.style.display = 'none';
+      }
+
+      launcher.addEventListener('click', function() {
+        panel.classList.contains('open') ? closePanel() : openPanel();
+      });
+
+      closeBtn.addEventListener('click', closePanel);
+
+      rewindBtn.addEventListener('click', function() {
+        video.currentTime = Math.max(0, video.currentTime - 10);
+      });
+
+      muteBtn.addEventListener('click', function() {
+        video.muted = !video.muted;
+        muteBtn.querySelector('.icon-vol-on').style.display  = video.muted ? 'none' : '';
+        muteBtn.querySelector('.icon-vol-off').style.display = video.muted ? ''     : 'none';
+      });
+
+      speedBtn.addEventListener('click', function() {
+        speedIdx = (speedIdx + 1) % speeds.length;
+        video.playbackRate = speeds[speedIdx];
+        speedBtn.textContent = speeds[speedIdx] + 'x';
+      });
+
+      // ---- Progress bar & subtitles ----
+      video.addEventListener('timeupdate', function() {
+        if (!video.duration) return;
+        progressFill.style.width = (video.currentTime / video.duration * 100) + '%';
+        timeEl.textContent = fmt(video.currentTime) + ' / ' + fmt(video.duration);
+
+        var node = tree[currentNode];
+        var cues = node ? node.cues : [];
+        var cue = cues.find(function(c) {
+          return video.currentTime >= c.start && video.currentTime < c.end;
+        });
+
+        var useHoujin = node && node.subtitleStyle === 'houjin';
+        var activeEl   = useHoujin ? subtitleHoujinEl : subtitleEl;
+        var inactiveEl = useHoujin ? subtitleEl : subtitleHoujinEl;
+
+        inactiveEl.style.display = 'none';
+        if (cue) {
+          activeEl.textContent = cue.text;
+          activeEl.style.display = 'block';
+        } else {
+          activeEl.style.display = 'none';
+        }
+      });
+
+      // ---- Progress bar seek ----
+      progressWrap.addEventListener('click', function(e) {
+        var rect = progressWrap.getBoundingClientRect();
+        video.currentTime = ((e.clientX - rect.left) / rect.width) * video.duration;
+      });
+    })();
+
+    // Tab switching
+    document.querySelectorAll('.toggle-item').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.toggle-item').forEach(function(t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        var isCasual = tab.textContent.trim().includes('カジュアル');
+        document.getElementById('page-jobs').style.display = isCasual ? 'none' : 'block';
+        document.getElementById('page-casual').style.display = isCasual ? 'block' : 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>
