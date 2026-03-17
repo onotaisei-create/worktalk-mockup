@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>【エグゼキューション経験者｜M&Aアドバイザー】※ソーシングなし - 株式会社ウィルゲート - worktalk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="job-detail.css">
 </head>
 <body>
@@ -39,7 +42,6 @@
         <div class="company-logo" style="display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#1a237e;">WILLGATE</div>
         <h1 class="company-name">株式会社ウィルゲート</h1>
       </div>
-      <a href="#apply" class="header-apply-btn">応募する</a>
     </div>
   </header>
 
@@ -168,6 +170,31 @@
       </div>
     </div>
 
+    <!-- モデル年収 -->
+    <div class="section-card">
+      <h3 class="section-title">モデル年収</h3>
+      <div class="section-body">
+        <table class="info-table">
+          <tr>
+            <th>年収480万円</th>
+            <td>26歳 / 入社2年</td>
+          </tr>
+          <tr>
+            <th>年収650万円</th>
+            <td>31歳 / 入社5年</td>
+          </tr>
+          <tr>
+            <th>年収900万円</th>
+            <td>35歳 / 入社8年</td>
+          </tr>
+        </table>
+        <p class="salary-note" style="margin-top: 12px;">
+          ※上記は賞与・インセンティブを含む想定年収です<br>
+          ※個人の成果により変動します
+        </p>
+      </div>
+    </div>
+
     <!-- 雇用形態・勤務時間・勤務地・待遇 -->
     <div class="section-card">
       <h3 class="section-title">勤務条件・待遇</h3>
@@ -220,18 +247,33 @@
       </div>
     </div>
 
-    <!-- 応募CTA -->
-    <div class="footer-cta" id="apply">
-      <p class="footer-cta-title">このポジションに興味を持っていただけましたか？</p>
-      <a href="#" class="btn-apply-large">応募する</a>
-    </div>
-
     <!-- Back Link -->
     <div class="back-link-wrap">
       <a href="index.html" class="back-link">← 求人一覧に戻る</a>
     </div>
 
   </div><!-- /.page-wrapper -->
+
+  <!-- フローティングボタン -->
+  <div class="floating-btn-wrap">
+    <a href="casual.html" class="floating-btn">もっと詳しく話を聞きたい</a>
+  </div>
+
+  <script>
+    // SP only: accordion
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      document.querySelectorAll('.section-card').forEach(function(card) {
+        var title = card.querySelector('.section-title');
+        if (!title) return;
+        var icon = document.createElement('span');
+        icon.className = 'accordion-icon';
+        title.appendChild(icon);
+        title.addEventListener('click', function() {
+          card.classList.toggle('open');
+        });
+      });
+    }
+  </script>
 
 </body>
 </html>

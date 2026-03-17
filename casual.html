@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カジュアル面談 - 株式会社ウィルゲート - worktalk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="job-detail.css">
+</head>
+<body>
+
+  <!-- Password Gate -->
+  <div id="password-gate" style="position:fixed;inset:0;z-index:9999;background:#f5f5f5;display:flex;align-items:center;justify-content:center;">
+    <div style="background:#fff;padding:40px;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.15);text-align:center;min-width:280px;">
+      <p style="margin:0 0 16px;font-size:15px;color:#333;">パスワードを入力してください</p>
+      <input type="password" id="pw-input" style="width:100%;padding:8px 12px;border:1px solid #ccc;border-radius:4px;font-size:15px;box-sizing:border-box;" autofocus>
+      <button onclick="checkPassword()" style="margin-top:12px;width:100%;padding:10px;background:#1a237e;color:#fff;border:none;border-radius:4px;font-size:15px;cursor:pointer;">入力</button>
+      <p id="pw-error" style="color:red;font-size:13px;margin:8px 0 0;display:none;">パスワードが違います</p>
+    </div>
+  </div>
+  <script>
+    (function() { if (sessionStorage.getItem('auth') === '1') document.getElementById('password-gate').style.display = 'none'; })();
+    function checkPassword() {
+      if (document.getElementById('pw-input').value === 'ai') {
+        sessionStorage.setItem('auth', '1');
+        document.getElementById('password-gate').style.display = 'none';
+      } else {
+        document.getElementById('pw-error').style.display = 'block';
+      }
+    }
+    document.getElementById('pw-input').addEventListener('keydown', function(e) { if (e.key === 'Enter') checkPassword(); });
+  </script>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-left">
+        <div class="company-logo" style="display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#1a237e;">WILLGATE</div>
+        <h1 class="company-name">株式会社ウィルゲート</h1>
+      </div>
+      <a href="#apply-form" class="header-apply-btn">申し込む</a>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+      <a href="index.html">求人一覧</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">カジュアル面談希望の方はこちら</span>
+    </nav>
+
+    <!-- Title Block -->
+    <div class="job-title-block">
+      <h2 class="job-title">カジュアル面談希望の方はこちら</h2>
+      <div class="job-meta-tags">
+        <span class="meta-badge">選考なし</span>
+        <span class="meta-tag">オンライン</span>
+        <span class="meta-tag">約30〜60分</span>
+      </div>
+    </div>
+
+    <!-- カジュアル面談とは -->
+    <div class="section-card">
+      <h3 class="section-title">カジュアル面談とは</h3>
+      <div class="section-body">
+        <p>
+          選考とは関係なく、会社や仕事についてざっくばらんにお話しできる場です。転職を考えているかどうかにかかわらず、お気軽にご参加ください。
+        </p>
+        <p>
+          「まだ転職するか決めていない」「どんな会社なのか知りたい」という方も大歓迎です。まずは話を聞くだけでも構いません。
+        </p>
+      </div>
+    </div>
+
+    <!-- メリット -->
+    <div class="section-card">
+      <h3 class="section-title">カジュアル面談のメリット</h3>
+      <div class="section-body">
+        <ul>
+          <li><strong>選考・評価なし：</strong>合否の判定は一切行いません。プレッシャーなくお話しいただけます。</li>
+          <li><strong>社風・職場環境を直接確認：</strong>実際に働く社員から、職場の雰囲気やチームの文化について本音でお伝えします。求人票だけではわからないリアルな情報を得られます。</li>
+          <li><strong>キャリアの相談ができる：</strong>「自分のスキルが活かせるか」「将来的なキャリアパスは？」など、漠然とした悩みでも一緒に考えます。</li>
+          <li><strong>転職活動の第一歩として最適：</strong>情報収集の場として、まずは話を聞くだけでも大歓迎です。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 面談の流れ -->
+    <div class="section-card">
+      <h3 class="section-title">面談の流れ</h3>
+      <div class="section-body">
+        <table class="info-table">
+          <tr>
+            <th>STEP 1</th>
+            <td>下のフォームから申し込みます。</td>
+          </tr>
+          <tr>
+            <th>STEP 2</th>
+            <td>担当者よりご連絡し、日程を調整します。</td>
+          </tr>
+          <tr>
+            <th>STEP 3</th>
+            <td>ZoomまたはGoogle Meetにてオンライン面談（約30〜60分）。自宅から気軽にご参加いただけます。</td>
+          </tr>
+          <tr>
+            <th>STEP 4</th>
+            <td>面談後、選考へ進むかどうかはご自身のペースで決めていただけます。</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- 応募フォーム -->
+    <div class="section-card" id="apply-form">
+      <h3 class="section-title">応募フォーム</h3>
+      <div class="section-body">
+        <form class="apply-form">
+
+          <div class="form-field">
+            <label class="form-label">現在の転職意欲 <span class="badge-required">必須</span></label>
+            <select class="form-input form-select">
+              <option value="" disabled selected>選択してください</option>
+              <option>すぐにでも転職したい</option>
+              <option>3ヶ月以内に転職したい</option>
+              <option>半年以内に転職したい</option>
+              <option>良い機会があれば転職したい</option>
+              <option>情報収集中（転職は考えていない）</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">氏名 <span class="badge-required">必須</span></label>
+            <input type="text" class="form-input" placeholder="例）鈴木　太郎">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">年齢 <span class="badge-required">必須</span></label>
+            <input type="text" class="form-input" placeholder="例）28歳">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">携帯電話番号 <span class="badge-required">必須</span></label>
+            <input type="tel" class="form-input" placeholder="ハイフンなし、半角数字">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">メールアドレス <span class="badge-required">必須</span></label>
+            <input type="email" class="form-input" placeholder="入力してください">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">企業へのご質問やメッセージなど <span class="badge-optional">任意</span></label>
+            <textarea class="form-input form-textarea" placeholder="ご自由にお書きください"></textarea>
+          </div>
+
+          <div class="form-submit-wrap">
+            <button type="submit" class="btn-apply-large">申し込む</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <!-- Back Link -->
+    <div class="back-link-wrap">
+      <a href="index.html" class="back-link">← 求人一覧に戻る</a>
+    </div>
+
+  </div>
+
+  <script>
+    // SP only: accordion
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      document.querySelectorAll('.section-card').forEach(function(card) {
+        var title = card.querySelector('.section-title');
+        if (!title) return;
+        var icon = document.createElement('span');
+        icon.className = 'accordion-icon';
+        title.appendChild(icon);
+        title.addEventListener('click', function() {
+          card.classList.toggle('open');
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>

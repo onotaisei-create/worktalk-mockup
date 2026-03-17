@@ -11,7 +11,7 @@
 }
 
 body {
-  font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+  font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
   background-color: #f5f5f5;
   color: #333;
   line-height: 1.6;
@@ -70,45 +70,6 @@ a {
 }
 
 /* ========================================
-   Toggle Navigation
-   ======================================== */
-.toggle-wrapper {
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-  padding: 12px 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.toggle-group {
-  display: inline-flex;
-  background: #eeeeee;
-  border-radius: 999px;
-  padding: 4px;
-  gap: 4px;
-}
-
-.toggle-item {
-  padding: 8px 32px;
-  border-radius: 999px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #666;
-  cursor: pointer;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-
-.toggle-item:hover {
-  color: #1a73e8;
-}
-
-.toggle-item.active {
-  background: #1a73e8;
-  color: #fff;
-}
-
-/* ========================================
    Hero Image
    ======================================== */
 .hero-section {
@@ -119,16 +80,15 @@ a {
 
 .hero-image {
   width: 100%;
-  height: 340px;
-  object-fit: cover;
   border-radius: 4px;
-  background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #3949ab 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  position: relative;
   overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
 }
 
 .hero-overlay {
@@ -404,307 +364,10 @@ a {
   display: none;
 }
 
-/* ========================================
-   カジュアル面談 共通
-   ======================================== */
-.casual-section-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
+.sp-search-block {
+  display: none;
 }
 
-.casual-section-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: #1a237e;
-  margin-bottom: 28px;
-  padding-bottom: 12px;
-  border-bottom: 3px solid #1a73e8;
-  display: inline-block;
-}
-
-/* ========================================
-   カジュアル面談 イントロ
-   ======================================== */
-.casual-intro {
-  background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #3949ab 100%);
-  color: #fff;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.casual-intro-inner {
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.casual-intro-label {
-  font-size: 12px;
-  letter-spacing: 4px;
-  opacity: 0.7;
-  margin-bottom: 12px;
-  font-weight: 600;
-}
-
-.casual-intro-title {
-  font-size: 36px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
-.casual-intro-text {
-  font-size: 15px;
-  line-height: 1.9;
-  opacity: 0.9;
-}
-
-/* ========================================
-   カジュアル面談 メリット
-   ======================================== */
-.casual-merits {
-  padding: 60px 0;
-  background: #f5f5f5;
-}
-
-.merit-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.merit-card {
-  background: #fff;
-  border-radius: 8px;
-  padding: 32px 28px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.merit-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-}
-
-.merit-icon {
-  font-size: 36px;
-  margin-bottom: 16px;
-}
-
-.merit-card-title {
-  font-size: 17px;
-  font-weight: 700;
-  color: #1a237e;
-  margin-bottom: 12px;
-}
-
-.merit-card-text {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.8;
-}
-
-/* ========================================
-   カジュアル面談 フロー
-   ======================================== */
-.casual-flow {
-  padding: 60px 0;
-  background: #fff;
-}
-
-.flow-steps {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.flow-step {
-  flex: 1;
-  background: #f8f9ff;
-  border: 1px solid #e3e8f5;
-  border-radius: 8px;
-  padding: 28px 24px;
-}
-
-.flow-step-num {
-  font-size: 32px;
-  font-weight: 800;
-  color: #1a73e8;
-  opacity: 0.3;
-  line-height: 1;
-  margin-bottom: 12px;
-}
-
-.flow-step-title {
-  font-size: 16px;
-  font-weight: 700;
-  color: #1a237e;
-  margin-bottom: 8px;
-}
-
-.flow-step-text {
-  font-size: 13px;
-  color: #666;
-  line-height: 1.7;
-}
-
-.flow-arrow {
-  font-size: 28px;
-  color: #1a73e8;
-  opacity: 0.4;
-  flex-shrink: 0;
-  margin-top: 40px;
-  font-weight: 700;
-}
-
-/* ========================================
-   カジュアル面談 担当者カード
-   ======================================== */
-.casual-slots {
-  padding: 60px 0;
-  background: #f5f5f5;
-}
-
-.slot-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.slot-card {
-  background: #fff;
-  border-radius: 8px;
-  padding: 28px 24px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.slot-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-}
-
-.slot-avatar {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #1a237e, #3949ab);
-  color: #fff;
-  font-size: 24px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 14px;
-}
-
-.slot-name {
-  font-size: 17px;
-  font-weight: 700;
-  color: #222;
-  margin-bottom: 4px;
-}
-
-.slot-role {
-  font-size: 12px;
-  color: #888;
-  margin-bottom: 14px;
-}
-
-.slot-comment {
-  font-size: 13px;
-  color: #555;
-  line-height: 1.7;
-  margin-bottom: 16px;
-  text-align: left;
-  flex: 1;
-}
-
-.slot-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.slot-tag {
-  display: inline-block;
-  padding: 3px 10px;
-  font-size: 12px;
-  border: 1px solid #1a73e8;
-  border-radius: 3px;
-  color: #1a73e8;
-  background: #f0f6ff;
-}
-
-.btn-slot-apply {
-  width: 100%;
-  padding: 12px;
-  background: #1a73e8;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.btn-slot-apply:hover {
-  background: #1565c0;
-}
-
-/* ========================================
-   カジュアル面談 CTAバナー
-   ======================================== */
-.casual-cta {
-  background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
-  padding: 64px 20px;
-  text-align: center;
-}
-
-.casual-cta-inner {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.casual-cta-title {
-  font-size: 26px;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 12px;
-}
-
-.casual-cta-text {
-  font-size: 15px;
-  color: rgba(255,255,255,0.8);
-  margin-bottom: 32px;
-}
-
-.btn-cta-primary {
-  display: inline-block;
-  padding: 16px 48px;
-  background: #fff;
-  color: #1a237e;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: opacity 0.2s, transform 0.2s;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-}
-
-.btn-cta-primary:hover {
-  opacity: 0.92;
-  transform: translateY(-1px);
-}
 
 /* ========================================
    Video Widget
@@ -790,6 +453,7 @@ a {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease, transform 0.3s ease;
+  touch-action: none;
 }
 
 .video-widget-panel.open {
@@ -935,7 +599,7 @@ a {
   text-align: center;
   font-size: 13px;
   font-weight: 600;
-  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
+  font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
   color: #1a1a1a;
   line-height: 1.7;
   white-space: pre-line;
@@ -1024,17 +688,15 @@ a {
    ======================================== */
 @media (max-width: 768px) {
   .video-widget-panel {
-    inset: 0;
-    width: 100%;
-    bottom: 0;
-    right: 0;
-    border-radius: 0;
-    box-shadow: none;
+    width: min(260px, calc(100vw - 32px));
+    right: 16px;
+    bottom: 20px;
+    border-radius: 16px;
+    box-shadow: 0 12px 48px rgba(0,0,0,0.35);
   }
 
   .video-widget-video {
-    height: 100%;
-    aspect-ratio: unset;
+    aspect-ratio: 9 / 16;
   }
 
   .video-widget-launcher {
@@ -1057,16 +719,25 @@ a {
   }
 
   .search-section {
-    flex-direction: column;
-    align-items: stretch;
+    display: none;
   }
 
-  .search-box {
-    flex: none;
+  .header {
+    padding: 12px 0;
   }
 
-  .hero-image {
-    height: 200px;
+  .company-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .company-name {
+    font-size: 16px;
+  }
+
+  .announcement-banner {
+    font-size: 12px;
+    padding: 10px 16px;
   }
 
   .hero-overlay h2 {
@@ -1088,135 +759,94 @@ a {
     display: none;
   }
 
-  /* SP: フィルターリスト表示 */
-  .sp-filter-list {
-    display: block;
-    background: #fff;
-    margin: 16px 16px 0;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    overflow: hidden;
+  .hero-section {
+    padding: 12px 12px 0;
   }
 
-  /* SP: フィルターエントリ */
-  .sp-filter-entry {
-    border-bottom: 1px solid #eee;
+  .hero-img {
+    height: auto;
+    border-radius: 6px;
   }
 
-  .sp-filter-entry:last-child {
-    border-bottom: none;
-  }
-
-  .sp-filter-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 16px;
-    cursor: pointer;
-    background: #fff;
-    -webkit-tap-highlight-color: rgba(0,0,0,0.05);
-  }
-
-  .sp-filter-item:active {
-    background: #f5f5f5;
-  }
-
-  .sp-filter-item-content {
-    flex: 1;
-  }
-
-  .sp-filter-label {
-    font-weight: 700;
-    font-size: 15px;
-    color: #222;
-    margin-bottom: 2px;
-  }
-
-  .sp-filter-value {
-    font-size: 13px;
-    color: #666;
-  }
-
-  /* 矢印: デフォルトは下向き（›を90度回転）、開いたら上向き */
-  .sp-filter-arrow {
-    color: #1a73e8;
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1;
-    margin-left: 12px;
-    display: inline-block;
-    transform: rotate(90deg);
-    transition: transform 0.25s ease;
-  }
-
-  .sp-filter-entry.open .sp-filter-arrow {
-    transform: rotate(-90deg);
-  }
-
-  /* アコーディオンパネル */
-  .sp-filter-panel {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    background: #fafafa;
-  }
-
-  .sp-filter-entry.open .sp-filter-panel {
-    max-height: 300px;
-  }
-
-  .sp-filter-option {
-    display: flex;
-    align-items: center;
+  .main-content {
+    padding: 12px 12px 20px;
     gap: 12px;
-    padding: 12px 20px;
+  }
+
+  .job-card {
+    padding: 14px 14px;
+    margin-bottom: 10px;
+    gap: 10px;
+  }
+
+  .job-card-title {
     font-size: 14px;
+  }
+
+  .job-card-description {
+    font-size: 12px;
+  }
+
+  .tag, .badge {
+    font-size: 11px;
+    padding: 2px 8px;
+  }
+
+  /* SP: 検索ブロック */
+  .sp-search-block {
+    display: block;
+    padding: 12px 12px 0;
+  }
+
+  .sp-search-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 10px;
+  }
+
+  .sp-dropdown-row {
+    display: flex;
+    gap: 8px;
+  }
+
+  .sp-select {
+    flex: 1;
+    padding: 10px 32px 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
     color: #333;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    appearance: none;
+    -webkit-appearance: none;
     cursor: pointer;
-    border-bottom: 1px solid #f0f0f0;
+    box-sizing: border-box;
+    transition: border-color 0.15s;
   }
 
-  .sp-filter-option:last-child {
-    border-bottom: none;
+  .sp-select:focus {
+    outline: none;
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 3px rgba(26,115,232,0.12);
   }
 
-  .sp-filter-option input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
+  .sp-drop-opt input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
     accent-color: #1a73e8;
     cursor: pointer;
     flex-shrink: 0;
   }
 
-  /* カジュアル面談 レスポンシブ */
-  .casual-intro-title {
-    font-size: 26px;
+  .sp-result-count {
+    font-size: 13px;
+    color: #555;
+    padding: 12px 0 0;
   }
 
-  .merit-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .flow-steps {
-    flex-direction: column;
-  }
-
-  .flow-arrow {
-    transform: rotate(90deg);
-    margin-top: 0;
-    align-self: center;
-  }
-
-  .slot-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .casual-cta-title {
-    font-size: 20px;
-  }
-
-  .btn-cta-primary {
-    width: 100%;
-    padding: 16px 24px;
-  }
 }
