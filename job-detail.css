@@ -342,6 +342,39 @@ body {
 }
 
 /* ========================================
+   CTA Banner (応募後の流れ〜戻るの間)
+   ======================================== */
+.cta-banner {
+  background: #fff;
+  border-top: 3px solid #222;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 28px 24px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.cta-banner-heading {
+  font-size: 17px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 8px 0;
+}
+
+.cta-banner-sub {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+  line-height: 1.8;
+}
+
+.cta-banner-note {
+  font-size: 12px;
+  color: #888;
+}
+
+/* ========================================
    Footer CTA
    ======================================== */
 .footer-cta {
