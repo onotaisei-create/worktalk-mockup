@@ -367,6 +367,7 @@ body {
   padding: 0 20px;
   z-index: 200;
   text-align: center;
+  transition: opacity 0.2s;
 }
 
 .floating-btn {

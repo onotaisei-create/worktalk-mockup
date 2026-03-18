@@ -364,6 +364,17 @@
       document.getElementById('company-modal').style.display = 'none';
       document.body.style.overflow = '';
     }
+
+    (function() {
+      var wrap = document.querySelector('.floating-btn-wrap');
+      var footer = document.querySelector('.site-footer');
+      if (!wrap || !footer) return;
+      new IntersectionObserver(function(entries) {
+        var visible = entries[0].isIntersecting;
+        wrap.style.opacity = visible ? '0' : '1';
+        wrap.style.pointerEvents = visible ? 'none' : 'auto';
+      }, { threshold: 0 }).observe(footer);
+    })();
   </script>
 
 </body>
