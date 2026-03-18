@@ -280,6 +280,7 @@
     <div class="cta-banner">
       <p class="cta-banner-heading">まずは話を聞くだけでもOK</p>
       <p class="cta-banner-sub">15〜30分のオンラインサポート面談<br><span class="cta-banner-note">※履歴書・職務経歴書は不要</span></p>
+      <a href="casual.html" class="btn-cta-banner">応募する</a>
     </div>
 
     <!-- Back Link -->
@@ -367,13 +368,17 @@
 
     (function() {
       var wrap = document.querySelector('.floating-btn-wrap');
+      if (!wrap) return;
+      var vis = {};
+      function update() {
+        var hide = vis.cta || vis.footer;
+        wrap.style.opacity = hide ? '0' : '1';
+        wrap.style.pointerEvents = hide ? 'none' : 'auto';
+      }
+      var cta = document.querySelector('.cta-banner');
       var footer = document.querySelector('.site-footer');
-      if (!wrap || !footer) return;
-      new IntersectionObserver(function(entries) {
-        var visible = entries[0].isIntersecting;
-        wrap.style.opacity = visible ? '0' : '1';
-        wrap.style.pointerEvents = visible ? 'none' : 'auto';
-      }, { threshold: 0 }).observe(footer);
+      if (cta) new IntersectionObserver(function(e) { vis.cta = e[0].isIntersecting; update(); }, { threshold: 0 }).observe(cta);
+      if (footer) new IntersectionObserver(function(e) { vis.footer = e[0].isIntersecting; update(); }, { threshold: 0 }).observe(footer);
     })();
   </script>
 

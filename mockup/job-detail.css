@@ -83,7 +83,7 @@ body {
 .page-wrapper {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px 20px 110px;
+  padding: 20px 20px 24px;
 }
 
 /* ========================================
@@ -374,6 +374,22 @@ body {
   color: #888;
 }
 
+.btn-cta-banner {
+  display: inline-block;
+  background: #222;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 13px 52px;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: background 0.2s;
+}
+
+.btn-cta-banner:hover {
+  background: #000;
+}
+
 /* ========================================
    Footer CTA
    ======================================== */
@@ -485,7 +501,7 @@ body {
   }
 
   .page-wrapper {
-    padding: 12px 10px 110px;
+    padding: 12px 10px 24px;
   }
 
   .floating-btn {
@@ -818,7 +834,7 @@ body {
 
 @media (max-width: 768px) {
   .site-footer {
-    padding: 24px 16px 20px;
+    padding: 16px 16px 14px;
   }
   .footer-apply-cta {
     margin-bottom: 20px;
@@ -830,13 +846,16 @@ body {
     font-size: 13px;
   }
   .footer-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+    max-width: 260px;
+    margin: 0 auto 14px;
   }
   .footer-link,
   .footer-link-btn {
     font-size: 12px;
+    text-align: center;
   }
   .modal-box {
     padding: 24px 18px;
