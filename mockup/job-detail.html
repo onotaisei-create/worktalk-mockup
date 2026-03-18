@@ -334,19 +334,17 @@
   </div>
 
   <script>
-    // SP only: accordion
-    if (window.matchMedia('(max-width: 768px)').matches) {
-      document.querySelectorAll('.section-card').forEach(function(card) {
-        var title = card.querySelector('.section-title');
-        if (!title) return;
-        var icon = document.createElement('span');
-        icon.className = 'accordion-icon';
-        title.appendChild(icon);
-        title.addEventListener('click', function() {
-          card.classList.toggle('open');
-        });
+    // Accordion (all screens)
+    document.querySelectorAll('.section-card').forEach(function(card) {
+      var title = card.querySelector('.section-title');
+      if (!title) return;
+      var icon = document.createElement('span');
+      icon.className = 'accordion-icon';
+      title.appendChild(icon);
+      title.addEventListener('click', function() {
+        card.classList.toggle('open');
       });
-    }
+    });
 
     function openWorktalkModal() {
       document.getElementById('worktalk-modal').style.display = 'flex';

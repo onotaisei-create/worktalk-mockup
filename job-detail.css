@@ -176,15 +176,57 @@ body {
   padding: 24px;
   margin-bottom: 16px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
 }
 
 .section-title {
   font-size: 17px;
   font-weight: 700;
   color: #111;
-  margin: 0 0 16px 0;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #e0e0e0;
+  margin: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.accordion-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+  color: #555;
+}
+
+.accordion-icon::before {
+  content: '';
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-right: 2.5px solid #555;
+  border-bottom: 2.5px solid #555;
+  transform: rotate(45deg);
+  margin-top: -5px;
+}
+
+.section-card.open .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.section-card .section-body {
+  display: none;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.section-card.open .section-body {
+  display: block;
 }
 
 .section-body {
@@ -480,64 +522,9 @@ body {
     max-width: 200px;
   }
 
-  /* SP アコーディオン */
-  .accordion-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-    transition: transform 0.25s ease;
-    color: #555;
-  }
-
-  .accordion-icon::before {
-    content: '';
-    display: block;
-    width: 9px;
-    height: 9px;
-    border-right: 2.5px solid #555;
-    border-bottom: 2.5px solid #555;
-    transform: rotate(45deg);
-    margin-top: -5px;
-  }
-
-  .section-card.open .accordion-icon {
-    transform: rotate(180deg);
-  }
-
+  /* SP: section-card に枠線を追加 */
   .section-card {
     border: 1.5px solid #ddd;
-    cursor: pointer;
-  }
-
-  .section-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-    user-select: none;
-  }
-
-  .section-card .section-body {
-    display: none;
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid #e0e0e0;
-  }
-
-  .section-card.open .section-body {
-    display: block;
-  }
-}
-
-/* アコーディオンアイコン：PC は非表示 */
-@media (min-width: 769px) {
-  .accordion-icon {
-    display: none;
   }
 }
 
