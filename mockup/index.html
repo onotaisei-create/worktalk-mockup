@@ -570,5 +570,65 @@
 
   </script>
 
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-links">
+      <button class="footer-link-btn" onclick="openWorktalkModal()">ワークトークとは</button>
+      <a href="#" class="footer-link">利用規約</a>
+      <a href="#" class="footer-link">プライバシーポリシー</a>
+      <button class="footer-link-btn" onclick="openCompanyModal()">運営会社</button>
+    </div>
+    <p class="footer-powered">Powered by <a href="https://work-talk.jp/lp" target="_blank" rel="noopener" class="footer-powered-link">worktalk</a></p>
+  </footer>
+
+  <!-- Modal: ワークトークとは -->
+  <div id="worktalk-modal" class="modal-overlay" onclick="if(event.target===this)closeWorktalkModal()">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeWorktalkModal()">×</button>
+      <h2 class="modal-title">worktalk（ワークトーク）とは</h2>
+      <p>ワークトークは、求人情報だけではわかりにくい仕事内容や企業の特徴を、応募前にわかりやすく理解できるサービスです。</p>
+      <div class="merit-divider"></div>
+      <p class="note-label">■ 特徴</p>
+      <ul style="margin:8px 0 0;padding-left:20px;line-height:1.9;">
+        <li>応募前に仕事内容や企業の特徴を整理できる</li>
+        <li>求人情報だけではわからない点を把握できる</li>
+        <li>納得した上で選考に進める</li>
+      </ul>
+      <div class="merit-divider"></div>
+      <p>応募後は、ワークトーク事務局が内容を整理し、企業との面談・選考をスムーズに進められるようご案内します。</p>
+    </div>
+  </div>
+
+  <!-- Modal: 運営会社 -->
+  <div id="company-modal" class="modal-overlay" onclick="if(event.target===this)closeCompanyModal()">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeCompanyModal()">×</button>
+      <h2 class="modal-title">運営会社</h2>
+      <table class="info-table" style="margin-top:8px;">
+        <tr><th>会社名</th><td>マイキャリア株式会社</td></tr>
+        <tr><th>サービス名</th><td>worktalk（ワークトーク）</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function openWorktalkModal() {
+      document.getElementById('worktalk-modal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeWorktalkModal() {
+      document.getElementById('worktalk-modal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    function openCompanyModal() {
+      document.getElementById('company-modal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCompanyModal() {
+      document.getElementById('company-modal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  </script>
+
 </body>
 </html>
