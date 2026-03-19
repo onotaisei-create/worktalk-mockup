@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>応募フォーム - 株式会社ウィルゲート - worktalk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="job-detail.css">
+</head>
+<body>
+
+  <!-- Password Gate -->
+  <div id="password-gate" style="position:fixed;inset:0;z-index:9999;background:#f5f5f5;display:flex;align-items:center;justify-content:center;">
+    <div style="background:#fff;padding:40px;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.15);text-align:center;min-width:280px;">
+      <p style="margin:0 0 16px;font-size:15px;color:#333;">パスワードを入力してください</p>
+      <input type="password" id="pw-input" style="width:100%;padding:8px 12px;border:1px solid #ccc;border-radius:4px;font-size:15px;box-sizing:border-box;" autofocus>
+      <button onclick="checkPassword()" style="margin-top:12px;width:100%;padding:10px;background:#1a237e;color:#fff;border:none;border-radius:4px;font-size:15px;cursor:pointer;">入力</button>
+      <p id="pw-error" style="color:red;font-size:13px;margin:8px 0 0;display:none;">パスワードが違います</p>
+    </div>
+  </div>
+  <script>
+    (function() { if (sessionStorage.getItem('auth') === '1') document.getElementById('password-gate').style.display = 'none'; })();
+    function checkPassword() {
+      if (document.getElementById('pw-input').value === 'ai') {
+        sessionStorage.setItem('auth', '1');
+        document.getElementById('password-gate').style.display = 'none';
+      } else {
+        document.getElementById('pw-error').style.display = 'block';
+      }
+    }
+    document.getElementById('pw-input').addEventListener('keydown', function(e) { if (e.key === 'Enter') checkPassword(); });
+  </script>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-left">
+        <div class="company-logo" style="display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#1a237e;">WILLGATE</div>
+        <h1 class="company-name">株式会社ウィルゲート</h1>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+      <a href="index.html">求人一覧</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">応募フォーム</span>
+    </nav>
+
+    <!-- Title Block -->
+    <div class="job-title-block">
+      <h2 class="job-title">応募フォーム</h2>
+      <p style="margin-top:8px;font-size:14px;color:#666;line-height:1.7;">
+        応募後、まずはワークトーク事務局とのオンラインサポート面談（約15〜30分）を行います。<br>
+        ご経験やご希望をお伺いした上で、企業との面談・選考を最適な形でご案内します。
+      </p>
+    </div>
+
+    <!-- Apply Form -->
+    <div class="section-card open">
+      <div class="section-body">
+        <form class="apply-form">
+
+          <div class="form-field">
+            <label class="form-label">今回のご希望 <span class="badge-required">必須</span></label>
+            <select class="form-input form-select">
+              <option value="" disabled selected>選択してください</option>
+              <option>すぐに選考に進みたい</option>
+              <option>まずは話を聞いてから判断したい</option>
+              <option>他の求人も含めて相談したい</option>
+            </select>
+            <p style="margin-top:8px;font-size:12px;color:#888;line-height:1.7;">
+              ※どちらを選択された場合でも、まずはワークトーク事務局とのオンラインサポート面談（約15〜30分）を行います。<br>
+              ※書類添削・面接対策なども無料でサポートしています。
+            </p>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">氏名 <span class="badge-required">必須</span></label>
+            <input type="text" class="form-input" placeholder="例）鈴木　太郎">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">年齢 <span class="badge-required">必須</span></label>
+            <input type="text" class="form-input" placeholder="例）28歳">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">携帯電話番号 <span class="badge-required">必須</span></label>
+            <input type="tel" class="form-input" placeholder="ハイフンなし、半角数字">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">メールアドレス <span class="badge-required">必須</span></label>
+            <input type="email" class="form-input" placeholder="入力してください">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">企業へのご質問やメッセージなど <span class="badge-optional">任意</span></label>
+            <textarea class="form-input form-textarea" placeholder="ご自由にお書きください"></textarea>
+          </div>
+
+          <div class="form-submit-wrap">
+            <button type="submit" class="btn-apply-large">応募する</button>
+            <p style="margin-top:12px;font-size:12px;color:#888;line-height:1.7;">
+              ※履歴書・職務経歴書は、サポート面談後のご提出で問題ありません。
+            </p>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <!-- Back Link -->
+    <div class="back-link-wrap">
+      <a href="index.html" class="back-link">← 求人一覧に戻る</a>
+    </div>
+
+  </div><!-- /.page-wrapper -->
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-links">
+      <button class="footer-link-btn" onclick="openWorktalkModal()">ワークトークとは</button>
+      <a href="#" class="footer-link">利用規約</a>
+      <a href="#" class="footer-link">プライバシーポリシー</a>
+      <button class="footer-link-btn" onclick="openCompanyModal()">運営会社</button>
+    </div>
+    <p class="footer-powered">Powered by <a href="https://work-talk.jp/lp" target="_blank" rel="noopener" class="footer-powered-link">worktalk</a></p>
+  </footer>
+
+  <!-- Modal: ワークトークとは -->
+  <div id="worktalk-modal" class="modal-overlay" onclick="if(event.target===this)closeWorktalkModal()">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeWorktalkModal()">×</button>
+      <h2 class="modal-title">worktalk（ワークトーク）とは</h2>
+      <p>ワークトークは、求人情報だけではわかりにくい仕事内容や企業の特徴を、応募前にわかりやすく理解できるサービスです。</p>
+      <div class="merit-divider"></div>
+      <p class="note-label">■ 特徴</p>
+      <ul style="margin:8px 0 0;padding-left:20px;line-height:1.9;">
+        <li>応募前に仕事内容や企業の特徴を整理できる</li>
+        <li>求人情報だけではわからない点を把握できる</li>
+        <li>納得した上で選考に進める</li>
+      </ul>
+      <div class="merit-divider"></div>
+      <p>応募後は、ワークトーク事務局が内容を整理し、企業との面談・選考をスムーズに進められるようご案内します。</p>
+    </div>
+  </div>
+
+  <!-- Modal: 運営会社 -->
+  <div id="company-modal" class="modal-overlay" onclick="if(event.target===this)closeCompanyModal()">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeCompanyModal()">×</button>
+      <h2 class="modal-title">運営会社</h2>
+      <table class="info-table" style="margin-top:8px;">
+        <tr><th>会社名</th><td>マイキャリア株式会社</td></tr>
+        <tr><th>サービス名</th><td>worktalk（ワークトーク）</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function openWorktalkModal() {
+      document.getElementById('worktalk-modal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeWorktalkModal() {
+      document.getElementById('worktalk-modal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    function openCompanyModal() {
+      document.getElementById('company-modal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCompanyModal() {
+      document.getElementById('company-modal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  </script>
+
+</body>
+</html>
