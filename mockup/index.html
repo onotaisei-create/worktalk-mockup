@@ -64,35 +64,32 @@
        求人一覧 ページコンテンツ
        ======================================== -->
   <div id="page-jobs" class="page-section">
-    <!-- PC: Result Count -->
-    <section class="search-section">
-      <div class="result-count">全 <strong>4</strong> 件中 <strong>4</strong> 件を表示しています</div>
-    </section>
-
-    <!-- SP Search Block (SP only) -->
-    <div class="sp-search-block">
-      <div class="sp-search-title">求人を検索する</div>
-      <div class="sp-dropdown-row">
-        <select class="sp-select" data-filter="area">
-          <option value="">エリア（すべて）</option>
-          <option>東京</option>
-          <option>大阪</option>
-        </select>
-        <select class="sp-select" data-filter="job">
-          <option value="">職種（すべて）</option>
-          <option>営業</option>
-          <option>M&amp;A</option>
-          <option>エンジニア</option>
-        </select>
+    <!-- Search Block -->
+    <div class="sp-search-block" style="display:block">
+      <div class="sp-search-block-inner">
+        <div class="sp-search-title">求人を検索する</div>
+        <div class="sp-dropdown-row">
+          <select class="sp-select" data-filter="area">
+            <option value="">エリア（すべて）</option>
+            <option>東京</option>
+            <option>大阪</option>
+          </select>
+          <select class="sp-select" data-filter="job">
+            <option value="">職種（すべて）</option>
+            <option>営業</option>
+            <option>M&amp;A</option>
+            <option>エンジニア</option>
+          </select>
+        </div>
+        <div class="sp-result-count">全 <strong>4</strong> 件中 <strong>4</strong> 件を表示しています</div>
       </div>
-      <div class="sp-result-count">全 <strong>4</strong> 件中 <strong>4</strong> 件を表示しています</div>
     </div>
 
     <!-- Main Content: Sidebar + Job List -->
     <main class="main-content">
 
       <!-- Sidebar Filters -->
-      <aside class="sidebar">
+      <aside class="sidebar" style="display:none">
         <!-- 雇用形態 -->
         <div class="filter-group">
           <div class="filter-title">雇用形態</div>

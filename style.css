@@ -391,6 +391,62 @@ a {
   display: none;
 }
 
+/* SP検索ブロック共通スタイル */
+.sp-search-title {
+  display: none; /* PC では非表示 */
+  font-size: 15px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.sp-dropdown-row {
+  display: flex;
+  gap: 12px;
+}
+
+.sp-select {
+  width: 200px;
+  padding: 10px 32px 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  font-size: 14px;
+  font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+  color: #333;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.sp-select:focus {
+  outline: none;
+  border-color: #333;
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.08);
+}
+
+.sp-result-count {
+  font-size: 13px;
+  color: #555;
+  margin-left: auto; /* PC: 右端に寄せる */
+  white-space: nowrap;
+}
+
+/* PC: 横並びコンテナ */
+.sp-search-block-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 
 /* ========================================
    Video Widget
@@ -818,44 +874,33 @@ a {
   /* SP: 検索ブロック */
   .sp-search-block {
     display: block;
+  }
+
+  .sp-search-block-inner {
+    flex-direction: column;
+    align-items: flex-start;
     padding: 12px 12px 0;
+    gap: 0;
   }
 
   .sp-search-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #222;
-    margin-bottom: 10px;
+    display: block;
   }
 
   .sp-dropdown-row {
-    display: flex;
+    width: 100%;
     gap: 8px;
   }
 
   .sp-select {
+    width: auto;
     flex: 1;
-    padding: 10px 32px 10px 12px;
-    border: 1px solid #ccc;
-    border-radius: 0;
     font-size: 13px;
-    font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
-    color: #333;
-    background-color: #fff;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    appearance: none;
-    -webkit-appearance: none;
-    cursor: pointer;
-    box-sizing: border-box;
-    transition: border-color 0.15s;
   }
 
-  .sp-select:focus {
-    outline: none;
-    border-color: #333;
-    box-shadow: 0 0 0 3px rgba(0,0,0,0.08);
+  .sp-result-count {
+    margin-left: 0;
+    padding-top: 12px;
   }
 
   .sp-drop-opt input[type="checkbox"] {
@@ -864,12 +909,6 @@ a {
     accent-color: #333;
     cursor: pointer;
     flex-shrink: 0;
-  }
-
-  .sp-result-count {
-    font-size: 13px;
-    color: #555;
-    padding: 12px 0 0;
   }
 
 }
