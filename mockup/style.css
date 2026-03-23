@@ -847,6 +847,10 @@ a {
     border-radius: 0;
   }
 
+  .page-section {
+    padding: 0 12px;
+  }
+
   .main-content {
     padding: 12px 0 20px;
     gap: 12px;
@@ -854,7 +858,7 @@ a {
 
   .job-card {
     padding: 14px 14px;
-    margin: 0 12px 10px;
+    margin-bottom: 10px;
     gap: 10px;
   }
 
@@ -879,7 +883,7 @@ a {
   .sp-search-block-inner {
     flex-direction: column;
     align-items: flex-start;
-    padding: 12px 12px 0;
+    padding: 12px 0 0;
     gap: 0;
   }
 
