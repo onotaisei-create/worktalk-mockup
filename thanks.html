@@ -3,11 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>応募フォーム - 株式会社ウィルゲート - worktalk</title>
+  <title>送信完了 - 株式会社ウィルゲート - worktalk</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="job-detail.css">
+  <style>
+    .thanks-check {
+      width: 64px;
+      height: 64px;
+      border: 3px solid #1a73e8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: #1a73e8;
+      margin: 0 auto 20px;
+      font-weight: 700;
+    }
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: #1a73e8;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 50%;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+    .step-heading {
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 8px;
+    }
+    .step-body {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.8;
+      padding-left: 38px;
+    }
+  </style>
 </head>
 <body>
 
@@ -49,78 +92,88 @@
     <nav class="breadcrumb">
       <a href="index.html">求人一覧</a>
       <span class="breadcrumb-sep">›</span>
-      <a href="job-detail.html">求人詳細</a>
-      <span class="breadcrumb-sep">›</span>
-      <span class="breadcrumb-current">応募フォーム</span>
+      <span class="breadcrumb-current">完了</span>
     </nav>
 
-    <!-- Title Block -->
-    <div class="job-title-block">
-      <h2 class="job-title">応募フォーム</h2>
-      <p style="margin-top:8px;font-size:14px;color:#666;line-height:1.7;">
-        応募後、まずはワークトーク事務局とのオンラインサポート面談（約15〜30分）を行います。<br>
-        ご経験やご希望をお伺いした上で、企業との面談・選考を最適な形でご案内します。
+    <!-- Success Message -->
+    <div class="job-title-block" style="text-align:center;">
+      <div class="thanks-check">&#10003;</div>
+      <h2 class="job-title" style="text-align:center;">送信が完了しました</h2>
+      <p style="margin-top:12px;font-size:14px;color:#555;line-height:1.8;">
+        お申し込みありがとうございます。<br>
+        以下の流れで今後のご案内をさせていただきます。
       </p>
     </div>
 
-    <!-- Apply Form -->
+    <!-- CTA: 日程調整 -->
+    <div class="cta-banner">
+      <p class="cta-banner-heading">まずはサポート面談の日程調整をお願いします</p>
+      <p class="cta-banner-sub">ご都合の良い日時をお選びください</p>
+      <a href="#" class="btn-cta-banner">日程を調整する</a>
+      <p style="margin-top:12px;font-size:12px;color:#e53935;line-height:1.7;font-weight:500;">
+        ※面談日程の確定を持ちまして応募完了となります。
+      </p>
+    </div>
+
+    <!-- 今後の流れ -->
     <div class="section-card open">
+      <div class="section-header">
+        <h3 class="section-title">今後の流れ</h3>
+      </div>
       <div class="section-body">
-        <form class="apply-form">
 
-          <div class="form-field">
-            <label class="form-label">今回のご希望 <span class="badge-required">必須</span></label>
-            <select class="form-input form-select">
-              <option value="" disabled selected>選択してください</option>
-              <option>すぐに選考に進みたい</option>
-              <option>まずは話を聞いてから判断したい</option>
-              <option>他の求人も含めて相談したい</option>
-            </select>
-            <p style="margin-top:8px;font-size:12px;color:#888;line-height:1.7;">
-              ※どちらを選択された場合でも、まずはワークトーク事務局とのオンラインサポート面談（約15〜30分）を行います。<br>
-              ※書類添削・面接対策なども無料でサポートしています。
-            </p>
+        <!-- Step 1 -->
+        <div class="flow-item">
+          <div class="step-heading">
+            <span class="step-number">1</span>
+            事務局からのご連絡
           </div>
+          <p class="step-body">
+            ワークトーク事務局より、メールまたはお電話にてご連絡いたします。<br>
+            上記ボタンからサポート面談の日程調整をお願いいたします。
+          </p>
+        </div>
 
-          <div class="form-field">
-            <label class="form-label">氏名 <span class="badge-required">必須</span></label>
-            <input type="text" class="form-input" placeholder="例）鈴木　太郎">
+        <div class="merit-divider"></div>
+
+        <!-- Step 2 -->
+        <div class="flow-item">
+          <div class="step-heading">
+            <span class="step-number">2</span>
+            サポート面談（約15〜30分）
           </div>
+          <p class="step-body">
+            オンライン（Zoom）にて、ご希望やご状況をお伺いします。<br>
+            企業の特徴や選考ポイントのご案内、書類添削・面接対策なども無料でサポートいたします。
+          </p>
+        </div>
 
-          <div class="form-field">
-            <label class="form-label">年齢 <span class="badge-required">必須</span></label>
-            <input type="text" class="form-input" placeholder="例）28歳">
+        <div class="merit-divider"></div>
+
+        <!-- Step 3 -->
+        <div class="flow-item">
+          <div class="step-heading">
+            <span class="step-number">3</span>
+            企業との面談・選考
           </div>
+          <p class="step-body">
+            サポート面談の内容をもとに、企業との面談・選考を最適な形でご案内します。<br>
+            ご希望に応じて、他の求人のご案内も可能です。
+          </p>
+        </div>
 
-          <div class="form-field">
-            <label class="form-label">携帯電話番号 <span class="badge-required">必須</span></label>
-            <input type="tel" class="form-input" placeholder="ハイフンなし、半角数字">
-          </div>
+        <div class="merit-divider"></div>
 
-          <div class="form-field">
-            <label class="form-label">メールアドレス <span class="badge-required">必須</span></label>
-            <input type="email" class="form-input" placeholder="入力してください">
-          </div>
+        <p style="font-size:12px;color:#888;line-height:1.7;">
+          ※履歴書・職務経歴書は、サポート面談後のご提出で問題ありません。
+        </p>
 
-          <div class="form-field">
-            <label class="form-label">企業へのご質問やメッセージなど <span class="badge-optional">任意</span></label>
-            <textarea class="form-input form-textarea" placeholder="ご自由にお書きください"></textarea>
-          </div>
-
-          <div class="form-submit-wrap">
-            <button type="button" class="btn-apply-large" onclick="window.location.href='thanks.html';">応募する</button>
-            <p style="margin-top:12px;font-size:12px;color:#888;line-height:1.7;">
-              ※履歴書・職務経歴書は、サポート面談後のご提出で問題ありません。
-            </p>
-          </div>
-
-        </form>
       </div>
     </div>
 
     <!-- Back Link -->
     <div class="back-link-wrap">
-      <a href="job-detail.html" class="back-link">← 求人詳細に戻る</a>
+      <a href="index.html" class="back-link">← 求人一覧に戻る</a>
     </div>
 
   </div><!-- /.page-wrapper -->
