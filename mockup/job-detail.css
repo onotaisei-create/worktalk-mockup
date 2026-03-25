@@ -96,7 +96,7 @@ body {
   font-size: 12px;
   color: #888;
   margin-bottom: 20px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .breadcrumb a {
@@ -112,12 +112,18 @@ body {
   color: #ccc;
 }
 
+.breadcrumb a,
+.breadcrumb-sep {
+  flex-shrink: 0;
+}
+
 .breadcrumb-current {
   color: #555;
+  flex-shrink: 1;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 560px;
 }
 
 /* ========================================
@@ -568,7 +574,7 @@ body {
   }
 
   .breadcrumb-current {
-    max-width: 200px;
+    /* flex-shrink で自動省略されるため max-width 不要 */
   }
 
   /* SP: section-card に枠線を追加 */

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー - worktalk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tos.css">
+</head>
+<body>
+
+  <!-- Password Gate -->
+  <div id="password-gate" style="position:fixed;inset:0;z-index:9999;background:#f5f5f5;display:flex;align-items:center;justify-content:center;">
+    <div style="background:#fff;padding:40px;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.15);text-align:center;min-width:280px;">
+      <p style="margin:0 0 16px;font-size:15px;color:#333;">パスワードを入力してください</p>
+      <input type="password" id="pw-input" style="width:100%;padding:8px 12px;border:1px solid #ccc;border-radius:4px;font-size:15px;box-sizing:border-box;" autofocus>
+      <button onclick="checkPassword()" style="margin-top:12px;width:100%;padding:10px;background:#1a237e;color:#fff;border:none;border-radius:4px;font-size:15px;cursor:pointer;">入力</button>
+      <p id="pw-error" style="color:red;font-size:13px;margin:8px 0 0;display:none;">パスワードが違います</p>
+    </div>
+  </div>
+  <script>
+    (function() { if (sessionStorage.getItem('auth') === '1') document.getElementById('password-gate').style.display = 'none'; })();
+    function checkPassword() {
+      if (document.getElementById('pw-input').value === 'ai') {
+        sessionStorage.setItem('auth', '1');
+        document.getElementById('password-gate').style.display = 'none';
+      } else {
+        document.getElementById('pw-error').style.display = 'block';
+      }
+    }
+    document.getElementById('pw-input').addEventListener('keydown', function(e) { if (e.key === 'Enter') checkPassword(); });
+  </script>
+
+  <!-- Header -->
+  <header class="tos-header">
+    <div class="tos-header-inner">
+      <a href="https://work-talk.jp/lp" target="_blank" rel="noopener" class="tos-header-logo">
+        <img src="worktalk-logo.png" alt="worktalk" class="tos-header-logo-img">
+      </a>
+    </div>
+  </header>
+
+  <main class="tos-main">
+
+    <!-- Page Title -->
+    <div class="tos-card">
+      <h1 class="tos-page-title">個人情報の取扱いについて</h1>
+      <p class="tos-page-sub">マイキャリア株式会社が運営するworktalkサービスにおける個人情報の取扱いについてご説明します。</p>
+    </div>
+
+    <!-- Intro -->
+    <div class="tos-articles">
+
+      <p class="tos-article-body" style="margin-bottom:28px;">この入力フォームで取得する個人情報の取り扱いは下記3項の利用目的のためであり、この目的の範囲を超えて利用することはございません。</p>
+
+      <!-- 1. 組織の名称 -->
+      <div id="sec1" class="tos-article">
+        <h3 class="tos-article-title">1. 組織の名称</h3>
+        <div class="tos-article-body">
+          <p>組織の名称：マイキャリア株式会社</p>
+        </div>
+      </div>
+
+      <hr class="tos-article-divider">
+
+      <!-- 2. 管理者 -->
+      <div id="sec2" class="tos-article">
+        <h3 class="tos-article-title">2. 個人情報を管理する管理者の氏名、所属及び連絡先</h3>
+        <div class="tos-article-body">
+          <p>管理者名：個人情報保護管理者 石本 善大</p>
+          <p>連絡先：contact@my-career.co.jp</p>
+        </div>
+      </div>
+
+      <hr class="tos-article-divider">
+
+      <!-- 3. 利用目的 -->
+      <div id="sec3" class="tos-article">
+        <h3 class="tos-article-title">3. 個人情報の利用目的</h3>
+        <div class="tos-article-body">
+          <ul>
+            <li>当社の各事業に関するお問い合わせの方の個人情報は、お問い合わせにお答えする及びご要望のあった資料などをお送りするため</li>
+            <li>当社の採用応募の方の個人情報は、採用業務（選考、関連する連絡等）で使用するため</li>
+            <li>当社の転職支援サービスおよびworktalkをご利用のお客様の個人情報は、転職支援、求人案件の紹介、当社からの連絡等で使用するため</li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="tos-article-divider">
+
+      <!-- 4. 第三者提供 -->
+      <div id="sec4" class="tos-article">
+        <h3 class="tos-article-title">4. 個人情報の第三者提供</h3>
+        <div class="tos-article-body">
+          <p>当社は、ご提供いただいた個人情報を次の場合を除き第三者に提供いたしません。</p>
+          <ul>
+            <li>ご本人の同意がある場合</li>
+            <li>法令に基づく場合</li>
+            <li>人の生命、身体又は財産の保護のために必要がある場合であって、本人の同意を得ることが困難であるとき</li>
+            <li>公衆衛生の向上又は児童の健全な育成の推進のために特に必要がある場合であって、本人の同意を得ることが困難であるとき</li>
+            <li>国の機関若しくは地方公共団体又はその委託を受けた者が法令の定める事務を遂行することに対して協力する必要がある場合であって、本人の同意を得ることによって当該事務の遂行に支障を及ぼすおそれがあるとき</li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="tos-article-divider">
+
+      <!-- 5. 委託 -->
+      <div id="sec5" class="tos-article">
+        <h3 class="tos-article-title">5. 個人情報取扱いの委託</h3>
+        <div class="tos-article-body">
+          <p>当社は、事業運営上、お客様により良いサービスを提供するために業務の一部を外部に委託しています。業務委託先に対しては、個人情報を預けることがあります。この場合、個人情報を適切に取り扱っていると認められる委託先を選定し、契約等において個人情報の適正管理・機密保持などによりお客様の個人情報の漏洩防止に必要な事項を取決め、適切な管理を実施させます。</p>
+        </div>
+      </div>
+
+      <hr class="tos-article-divider">
+
+      <!-- 6. 開示等の請求 -->
+      <div id="sec6" class="tos-article">
+        <h3 class="tos-article-title">6. 個人情報の開示等の請求</h3>
+        <div class="tos-article-body">
+          <p>お客様が当社に対してご自身の個人情報の開示等（利用目的の通知、開示、内容の訂正・追加・削除、利用の停止または消去、第三者への提供の停止、第三者提供記録の開示）に関して、当社「個人情報に関するお問合わせ窓口」に申し出ることができます。その際、当社はご本人を確認させていただいたうえで、合理的な期間内に対応いたします。開示等の申し出の詳細につきましては、下記の「個人情報に関するお問い合わせ窓口」までお問い合わせください。</p>
+          <div style="margin-top:16px;padding:16px 20px;background:#f7f8fa;font-size:13px;line-height:1.8;color:#444;">
+            <p style="margin:0 0 4px 0;">〒542-0081 大阪府大阪市中央区南船場3-6-24 IBC心斎橋west 2F</p>
+            <p style="margin:0 0 4px 0;">マイキャリア株式会社 個人情報に関するお問い合わせ窓口</p>
+            <p style="margin:0;">メールアドレス：contact@my-career.co.jp</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="tos-article-divider">
+
+      <!-- 7. 任意性 -->
+      <div id="sec7" class="tos-article">
+        <h3 class="tos-article-title">7. 個人情報を提供されることの任意性について</h3>
+        <div class="tos-article-body">
+          <p>お客様が当社に個人情報を提供されるかどうかは、お客様の任意によるものです。ただし、必要な項目をいただけない場合、各サービス等が適切な状態で提供できない場合があります。</p>
+        </div>
+      </div>
+
+      <hr class="tos-article-divider">
+
+      <!-- 8. Cookie -->
+      <div id="sec8" class="tos-article">
+        <h3 class="tos-article-title">8. 本Webサイトへアクセスしたことを契機として機械的に取得される情報</h3>
+        <div class="tos-article-body">
+          <p>当社は、閲覧されたWebサイトのセキュリティ確保・ユーザーサービス向上のため、Cookieにより閲覧された方の情報を取得することがあります。</p>
+        </div>
+      </div>
+
+    </div><!-- /.tos-articles -->
+
+  </main>
+
+  <!-- Back to Top Button -->
+  <button class="tos-back-to-top" id="back-to-top" onclick="window.scrollTo({top:0})" aria-label="ページトップへ戻る">&#8593;</button>
+
+  <!-- Footer -->
+  <footer class="tos-footer">
+    <div class="tos-footer-inner">
+      <div class="tos-footer-links">
+        <a href="tos.html" class="tos-footer-link">利用規約</a>
+        <span class="tos-footer-link-active">プライバシーポリシー</span>
+      </div>
+      <div class="tos-footer-company">
+        <p class="tos-footer-company-name">マイキャリア株式会社</p>
+        <p class="tos-footer-company-detail">有料職業紹介事業 許可番号：27-ユ-304191</p>
+      </div>
+      <p class="tos-footer-copyright">&copy; 2025 My Career Inc. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 400) {
+          btn.classList.add('visible');
+        } else {
+          btn.classList.remove('visible');
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
