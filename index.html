@@ -359,7 +359,8 @@
             { start: 4,   end: 8.5, text: 'このページでは弊社の求人をご紹介します！' }
           ],
           choices: [
-            { label: '法人営業について聞く',   icon: '💼', next: 'houjin' }
+            { label: '法人営業について聞く',   icon: '💼', next: 'houjin' },
+            { label: 'カジュアル面談を希望',   icon: '☕', action: 'casual' }
           ]
         },
         houjin: {
@@ -376,8 +377,7 @@
             { start: 31, end: 37, text: '少しでも気になった方は、\nぜひ求人の詳細も\nチェックしてみてくださいね。' }
           ],
           choices: [
-            { label: '他の職種も見る',         icon: '🔄', next: 'greeting' },
-            { label: '応募について聞く',       icon: '📝', next: 'apply-intro' },
+            { label: '最初に戻る',             icon: '🔄', next: 'greeting' },
             { label: 'カジュアル面談を希望',   icon: '☕', action: 'casual' }
           ]
         },
