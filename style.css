@@ -675,7 +675,7 @@ a {
   -webkit-backdrop-filter: blur(4px);
   border-radius: 8px;
   padding: 8px 12px;
-  text-align: center;
+  text-align: left;
   font-size: 13px;
   font-weight: 600;
   font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
