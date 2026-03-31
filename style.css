@@ -681,7 +681,9 @@ a {
   font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
   color: #1a1a1a;
   line-height: 1.7;
-  white-space: pre-line;
+  white-space: normal;
+  word-break: break-all;
+  overflow-wrap: break-word;
   pointer-events: none;
   display: none;
 }

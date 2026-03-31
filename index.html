@@ -369,17 +369,19 @@
           src: 'faq-chatbot-widget/faq-chatbot-widget/videos/houjin-about.mp4',
           subtitleStyle: 'houjin',
           cues: [
-            { start: 0,  end: 3,  text: '法人営業について\nご紹介します！' },
-            { start: 3,  end: 8,  text: 'このポジションでは、\n企業のWebマーケティングの\n課題をヒアリングして、' },
-            { start: 8,  end: 13, text: 'SEOを中心とした\nコンサルティングの\nご提案をしていただきます。' },
-            { start: 13, end: 18, text: '単なるサービスの\n売り込みではなく、\nお客様の売上を\n一緒に伸ばしていく' },
-            { start: 18, end: 22, text: 'パートナーのような\n営業スタイルが特徴です。' },
-            { start: 22, end: 26, text: 'マーケティングの知識は、\n入社後にしっかり\n学べる環境がありますので、' },
-            { start: 26, end: 33, text: '「提案型の営業に\nチャレンジしたい」という方であれば、\n業界未経験でも大歓迎です。' },
-            { start: 33, end: 38, text: '少しでも気になった方は、\nぜひ求人の詳細も\nチェックしてみてくださいね。' }
+            { start: 0,  end: 3,  text: '法人営業についてご紹介します！' },
+            { start: 3,  end: 8,  text: 'このポジションでは、企業のWebマーケティングの課題をヒアリングして、' },
+            { start: 8,  end: 13, text: 'SEOを中心としたコンサルティングのご提案をしていただきます。' },
+            { start: 13, end: 18, text: '単なるサービスの売り込みではなく、お客様の売上を一緒に伸ばしていく' },
+            { start: 18, end: 22, text: 'パートナーのような営業スタイルが特徴です。' },
+            { start: 22, end: 26, text: 'マーケティングの知識は、入社後にしっかり学べる環境がありますので、' },
+            { start: 26, end: 33, text: '「提案型の営業にチャレンジしたい」という方であれば、業界未経験でも大歓迎です。' },
+            { start: 33, end: 38, text: '少しでも気になった方は、ぜひ求人の詳細もチェックしてみてくださいね。' }
           ],
           choices: [
             { label: '最初に戻る',             icon: '🔄', next: 'greeting' },
+            { label: '応募について聞く',       icon: '📝', next: 'greeting' },
+            { label: '勤務について聞く',       icon: '🏢', next: 'greeting' },
             { label: 'カジュアル面談を希望',   icon: '☕', action: 'casual' }
           ]
         },
