@@ -767,11 +767,20 @@ a {
    ======================================== */
 @media (max-width: 768px) {
   .video-widget-panel {
-    width: min(260px, calc(100vw - 32px));
-    right: 16px;
-    bottom: 20px;
+    width: calc(100vw - 16px);
+    height: calc(100dvh - 16px);
+    right: 8px;
+    bottom: 8px;
     border-radius: 16px;
     box-shadow: 0 12px 48px rgba(0,0,0,0.35);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .video-widget-panel .video-widget-video {
+    flex: 1;
+    aspect-ratio: auto;
+    min-height: 0;
   }
 
   .video-widget-video {
